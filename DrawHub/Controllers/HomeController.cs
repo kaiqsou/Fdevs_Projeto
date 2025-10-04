@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using DrawHub.Models;
+using DrawHub.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrawHub.Controllers
