@@ -1,4 +1,4 @@
-namespace DrawHub.Models
+namespace DrawHub.ViewModels
 {
     public class ErrorViewModel
     {
