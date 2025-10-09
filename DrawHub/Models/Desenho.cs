@@ -6,12 +6,13 @@ namespace DrawHub.Models
     {
         // Propriedades
         public int Id { get; set; }
-        public string Descricao { get; set; }
-        public string Imagem { get; set; }
+        public string? Titulo { get; set; }
+        public string? Descricao { get; set; }
+        public string? Imagem { get; set; }
         public bool Privacidade { get; set; } = false;
         public DateTime? DataEnvio { get; set; }
         public DateTime? DataAtualizacao { get; set; }
-        public virtual List<Categoria> Categorias { get; set; }
+        public virtual List<Categoria>? Categorias { get; set; }
         public int? UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }
 

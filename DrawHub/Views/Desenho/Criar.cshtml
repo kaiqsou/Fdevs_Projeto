@@ -1,5 +1,73 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DrawHub.Models.Desenho
+
 @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Criar Desenho</h2>
+    
+    @if (TempData["MsgSucesso"] != null)
+    {
+        <div class="alert alert-success">@TempData["MsgSucesso"]</div>
+    }
+
+    @if (TempData["MsgErro"] != null)
+    {
+        <div class="alert alert-danger">@TempData["MsgErro"]</div>
+    }
+
+    <form asp-action="Criar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
+
+        <!-- Título -->
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label"></label>
+            <input asp-for="Titulo" name="Titulo" class="form-control" placeholder="Digite um título para o desenho" />
+        </div>
+
+        <!-- Descrição -->
+        <div class="mb-3">
+            <label asp-for="Descricao" class="form-label"></label>
+            <textarea type="textarea" asp-for="Descricao" name="Descricao" class="form-control" placeholder="Digite uma breve descrição..." rows="3"></textarea>
+        </div>
+
+        <!-- Imagem -->
+        <div class="mb-3">
+            <label asp-for="Imagem" class="form-label">Imagem</label>
+            <input asp-for="Imagem" name="Imagem" type="file" class="form-control" accept="image/*" />
+        </div>
+
+        <!-- Pré-visualização da imagem -->
+        <div class="mb-3 text-center">
+            <img id="preview-imagem" src="#" alt="Pré-visualização" class="img-fluid rounded shadow-sm d-none" style="max-height: 200px;" />
+        </div>
+
+        <!-- Privacidade -->
+        <div class="form-check mb-3">
+            <label asp-for="Privacidade" class="form-check-label">Privado</label>
+            <input asp-for="Privacidade" name="Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Criar</button>
+    </form>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.querySelector('input[type="file"]').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const img = document.getElementById('preview-imagem');
+                img.src = event.target.result;
+                img.classList.remove('d-none');
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
 }

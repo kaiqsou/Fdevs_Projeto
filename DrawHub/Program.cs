@@ -1,4 +1,6 @@
 using DrawHub.Data;
+using DrawHub.Helpers;
+using DrawHub.Repositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,9 @@ builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o
 // Quando a interface for chamada, implementa a classe HttpContext
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+// Injeções de dependencia
+builder.Services.AddScoped<IDesenhoRepositorio, DesenhoRepositorio>();
+builder.Services.AddScoped<ISessao, Sessao>();
 
 builder.Services.AddSession(o =>
 {

@@ -7,7 +7,7 @@ namespace DrawHub.Models
         // Propriedades
         public int Id { get; set; }
         public CategoriaEnum Nome { get; set; }
-        public virtual List<Desenho> Desenhos { get; set; }
+        public virtual List<Desenho>? Desenhos { get; set; }
 
     }
 }
