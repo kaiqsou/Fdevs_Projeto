@@ -1,0 +1,65 @@
+﻿@model DrawHub.ViewModels.UsuarioCadastroViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Cadastre-se</h2>
+
+    @if (TempData["MsgSucesso"] != null)
+    {
+        <div class="alert alert-success">@TempData["MsgSucesso"]</div>
+    }
+
+    @if (TempData["MsgErro"] != null)
+    {
+        <div class="alert alert-danger">@TempData["MsgErro"]</div>
+    }
+
+    <form asp-action="Cadastrar" asp-controller="Usuario" method="post" class="border p-4 rounded bg-light shadow-sm">
+
+        <!-- Nome -->
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input type="text" asp-for="Nome" name="Nome" class="form-control" placeholder="Digite o seu nome" />
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+
+        <!-- E-mail -->
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input type="email" asp-for="Email" name="Email" class="form-control" placeholder="Digite o seu e-mail" />
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <!-- Senha -->
+        <div class="mb-3">
+            <label asp-for="Senha" class="form-label"></label>
+            <input type="password" asp-for="Senha" name="Senha" class="form-control" placeholder="Digite a senha" />
+            @Html.ValidationMessageFor(x => x.Senha)
+        </div>
+
+        <!-- Confirmação de Senha -->
+        <div class="mb-3">
+            <label asp-for="ConfirmaSenha" class="form-label"></label>
+            <input type="password" asp-for="ConfirmaSenha" name="ConfirmaSenha" class="form-control" placeholder="Digite a senha" />
+            @Html.ValidationMessageFor(x => x.ConfirmaSenha)
+        </div>
+
+        <p class="mb-4 text-sm mx-auto">
+            Já possui uma conta?
+            <a asp-action="Index" asp-controller="Login" class="text-primary text-gradient font-weight-bold">Entrar</a>
+        </p>
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+    </script>
+}

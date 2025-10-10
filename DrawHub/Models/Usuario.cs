@@ -8,7 +8,7 @@ namespace DrawHub.Models
         public int Id { get; set; }
         public string? Nome { get; set; }
         public string? Email { get; set; }
-        public string? Telefone { get; set; }
+        public string? Telefone { get; set; } = null;
         public string? Senha { get; set; }
         public RoleEnum? Tipo { get; set; }
         public DateTime DataCadastro { get; set; }

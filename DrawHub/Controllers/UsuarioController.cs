@@ -1,41 +1,77 @@
 ﻿using DrawHub.Models;
+using DrawHub.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrawHub.Controllers
 {
     public class UsuarioController : Controller
     {
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
+        private readonly IDesenhoRepositorio _desenhoRepositorio;
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IDesenhoRepositorio desenhoRepositorio)
+        {
+            _usuarioRepositorio = usuarioRepositorio;
+            _desenhoRepositorio = desenhoRepositorio;
+        }
+
         // Métodos [GET]
         public IActionResult Index()
         {
-            return View();
+            List<Usuario> usuarios = _usuarioRepositorio.BuscarTodos();
+
+            return View(usuarios);
         }
 
-        public IActionResult Criar()
+        public IActionResult Cadastrar()
         {
             return View();
         }
 
         public IActionResult Editar(int id)
         {
-            return View();
+            Usuario usuario = _usuarioRepositorio.BuscarPorId(id);
+
+            return View(usuario);
         }
 
         public IActionResult ConfirmarExclusao(int id)
         {
-            return View();
+            Usuario usuario = _usuarioRepositorio.BuscarPorId(id);
+
+            return View(usuario);
         }
 
         public IActionResult ExibirDesenhos(int id)
         {
-            return View();
+            List<Desenho> desenhos = _desenhoRepositorio.BuscarTodos();
+
+            // Adicionar PartialViews depois aqui
+            return View(desenhos);
         }
 
         // Métodos [POST]
         [HttpPost]
-        public IActionResult Criar(Usuario usuario)
+        public IActionResult Cadastrar(Usuario usuario)
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _usuarioRepositorio.Adicionar(usuario);
+
+                    TempData["MsgSucesso"] = "Usuário cadastrado com sucesso!";
+
+                    return RedirectToAction("Cadastrar");
+                }
+
+                return View(usuario);
+            }
+            catch (Exception erro)
+            {
+                TempData["MsgErro"] = $"Não foi possível cadastrar o usuário! Detalhe do erro: {erro.Message}";
+
+                return RedirectToAction("Cadastrar");
+            }
         }
 
         [HttpPost]

@@ -1,5 +1,6 @@
 ﻿using DrawHub.Data;
 using DrawHub.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DrawHub.Repositorio
 {
@@ -50,7 +51,7 @@ namespace DrawHub.Repositorio
 
         public List<Desenho> BuscarTodosPorUser(int userId)
         {
-            return _context.Desenhos.Where(x => x.UsuarioId == userId).ToList();
+            return _context.Desenhos.Include(x => x.Categorias).Where(x => x.UsuarioId == userId).ToList();
         }
 
         public bool Excluir(int id)

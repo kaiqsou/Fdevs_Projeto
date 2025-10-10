@@ -53,17 +53,17 @@ namespace DrawHub.Controllers
             {
                 try
                 {
-                    Usuario usuario = new Usuario();
-                    desenho.Usuario = usuario;
+                    Usuario userLogado = _sessao.BuscarSessao();
+                    desenho.UsuarioId = userLogado.Id;
 
                     _desenhoRepositorio.Adicionar(desenho);
-                    TempData["MsgSucesso"] = "Desenho adicionado com sucesso!";
+                    ViewData["MsgSucesso"] = "Desenho adicionado com sucesso!";
 
-                    return RedirectToAction("Index");
+                    return View(desenho);
                 }
                 catch (Exception erro)
                 {
-                    TempData["MsgErro"] = $"Erro ao adicionar o desenho! Mais detalhes: {erro.Message}";
+                    ViewData["MsgErro"] = $"Erro ao adicionar o desenho! Mais detalhes: {erro.Message}";
                 }
             }
 

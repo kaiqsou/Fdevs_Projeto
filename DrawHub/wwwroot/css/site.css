@@ -16,3 +16,6 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Estilização da validação de erro */
+.field-validation-error { color: #e01d1d; }

@@ -1,40 +1,45 @@
 ﻿@model DrawHub.Models.Desenho
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Publicar";
 }
 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Criar Desenho</h2>
     
-    @if (TempData["MsgSucesso"] != null)
+    @if (ViewData["MsgSucesso"] != null)
     {
-        <div class="alert alert-success">@TempData["MsgSucesso"]</div>
+        <div class="alert alert-success">@ViewData["MsgSucesso"]</div>
     }
 
-    @if (TempData["MsgErro"] != null)
+    @if (ViewData["MsgErro"] != null)
     {
-        <div class="alert alert-danger">@TempData["MsgErro"]</div>
+        <div class="alert alert-danger">@ViewData["MsgErro"]</div>
     }
 
     <form asp-action="Criar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
+
+
 
         <!-- Título -->
         <div class="mb-3">
             <label asp-for="Titulo" class="form-label"></label>
             <input asp-for="Titulo" name="Titulo" class="form-control" placeholder="Digite um título para o desenho" />
+            @Html.ValidationMessageFor(x => x.Titulo)
         </div>
 
         <!-- Descrição -->
         <div class="mb-3">
             <label asp-for="Descricao" class="form-label"></label>
             <textarea type="textarea" asp-for="Descricao" name="Descricao" class="form-control" placeholder="Digite uma breve descrição..." rows="3"></textarea>
+            @Html.ValidationMessageFor(x => x.Descricao)
         </div>
 
         <!-- Imagem -->
         <div class="mb-3">
             <label asp-for="Imagem" class="form-label">Imagem</label>
             <input asp-for="Imagem" name="Imagem" type="file" class="form-control" accept="image/*" />
+            @Html.ValidationMessageFor(x => x.Imagem)
         </div>
 
         <!-- Pré-visualização da imagem -->
@@ -49,6 +54,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Criar</button>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
     </form>
 
 </div>

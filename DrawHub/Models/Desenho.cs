@@ -13,7 +13,7 @@ namespace DrawHub.Models
         public DateTime? DataEnvio { get; set; }
         public DateTime? DataAtualizacao { get; set; }
         public virtual List<Categoria>? Categorias { get; set; }
-        public int? UsuarioId { get; set; }
+        public int UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }
 
         // Métodos

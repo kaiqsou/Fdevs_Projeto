@@ -1,0 +1,34 @@
+﻿@model LoginModel;
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login";
+}
+
+@if (ViewData["MsgErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewData["MsgErro"]
+    </div>
+}
+
+<form asp-controller="Login" asp-action="Entrar" method="post">
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">E-mail</label>
+        <input type="email" asp-for="Email" class="form-control" id="email" />
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Senha" class="form-label">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" id="senha">
+        @Html.ValidationMessageFor(x => x.Senha)
+    </div>
+
+    <p class="mb-4 text-sm mx-auto">
+        Não possui uma conta?
+        <a asp-action="Cadastrar" asp-controller="Usuario" class="text-primary text-gradient font-weight-bold">Cadastre-se</a>
+    </p>
+
+    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+</form>
