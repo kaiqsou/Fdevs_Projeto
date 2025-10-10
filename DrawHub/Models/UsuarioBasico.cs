@@ -1,4 +1,5 @@
 ﻿using DrawHub.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace DrawHub.Models
 {

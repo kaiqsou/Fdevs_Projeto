@@ -33,20 +33,22 @@ namespace DrawHub.Repositorio
             desenhoDb.Imagem = desenho.Imagem;
             desenhoDb.Privacidade = desenho.Privacidade;
             desenhoDb.Categorias = desenho.Categorias;
-            desenho.DataAtualizacao = DateTime.Now;
+            desenhoDb.DataAtualizacao = DateTime.Now;
 
             _context.Desenhos.Update(desenhoDb);
+            _context.SaveChanges();
+
             return desenhoDb;
         }
 
         public Desenho BuscarPorId(int id)
         {
-            return _context.Desenhos.FirstOrDefault(x => x.Id == id);
+            return _context.Desenhos.Include(u => u.Usuario).FirstOrDefault(x => x.Id == id);
         }
 
         public List<Desenho> BuscarTodos()
         {
-            return _context.Desenhos.Where(x => x.Privacidade != true).ToList();
+            return _context.Desenhos.Include(u => u.Usuario).Where(x => x.Privacidade != true).ToList();
         }
 
         public List<Desenho> BuscarTodosPorUser(int userId)

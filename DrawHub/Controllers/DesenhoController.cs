@@ -47,17 +47,30 @@ namespace DrawHub.Controllers
 
         // Métodos [POST]
         [HttpPost]
-        public IActionResult Criar(Desenho desenho)
+        public IActionResult Criar(Desenho desenho, IFormFile imagem)
         {
+            ModelState.Remove("Imagem");
+
+            if (imagem == null || imagem.Length == 0)
+            {
+                ModelState.AddModelError("Imagem", "Selecione uma imagem!");
+                return View(desenho);
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
+                    using var memoryStream = new MemoryStream();
+                    imagem.CopyTo(memoryStream);
+                    desenho.Imagem = Convert.ToBase64String(memoryStream.ToArray());
+
                     Usuario userLogado = _sessao.BuscarSessao();
                     desenho.UsuarioId = userLogado.Id;
 
                     _desenhoRepositorio.Adicionar(desenho);
                     ViewData["MsgSucesso"] = "Desenho adicionado com sucesso!";
+                    ModelState.Clear();
 
                     return View(desenho);
                 }

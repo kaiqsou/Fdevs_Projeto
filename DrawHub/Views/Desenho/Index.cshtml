@@ -14,14 +14,22 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
 
+                        @if (!string.IsNullOrEmpty(desenho.Imagem))
+                        {
+                            <img src="data:image/jpeg;base64,@desenho.Imagem"
+                                 class="card-img-top"
+                                 alt="@desenho.Titulo"
+                                 style="height: 200px;object-fit: cover;">
+                        }
+
                         <div class="card-body">
-                            <h5 class="card-title">@desenho.Titulo</h5
+                            <h5 class="card-title">@desenho.Titulo</h5>
                             <p class="card-text">@desenho.Descricao</p>
                             <p class="card-text">
                                 <small class="text-muted">Enviado em: @desenho.DataEnvio?.ToString("dd/MM/yyyy")</small>
                                 @if (desenho.DataAtualizacao.HasValue)
                                 {
-                                    <small class="text-muted">Atualizado em: @desenho.DataAtualizacao?.ToString("dd/MM/yyyy")</small>
+                                    <br><small class="text-muted">Atualizado em: @desenho.DataAtualizacao?.ToString("dd/MM/yyyy")</small>
                                 }
                             </p>
                         </div>
