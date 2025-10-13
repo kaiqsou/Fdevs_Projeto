@@ -1,5 +1,6 @@
 ﻿using DrawHub.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DrawHub.Models
 {
@@ -18,7 +19,12 @@ namespace DrawHub.Models
         public string? Descricao { get; set; }
 
         [Display(Name = "Imagem do Desenho")]
-        public string? Imagem { get; set; }
+        public string? ImagemCaminho { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Selecione a imagem")]
+        [Required(ErrorMessage = "Por favor, selecione uma imagem!")]
+        public IFormFile ArquivoImagem {  get; set; }
 
         [Display(Name = "Privacidade")]
         public bool Privacidade { get; set; } = false;
@@ -32,7 +38,7 @@ namespace DrawHub.Models
         // Métodos
         public void MudarImagem(string imagem)
         {
-            Imagem = imagem;
+            ImagemCaminho = imagem;
         }
 
         public void PrivarDesenho()

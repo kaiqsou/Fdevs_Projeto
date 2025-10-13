@@ -30,7 +30,7 @@ namespace DrawHub.Repositorio
 
             desenhoDb.Titulo = desenho.Titulo;
             desenhoDb.Descricao = desenho.Descricao;
-            desenhoDb.Imagem = desenho.Imagem;
+            desenhoDb.ArquivoImagem = desenho.ArquivoImagem;
             desenhoDb.Privacidade = desenho.Privacidade;
             desenhoDb.Categorias = desenho.Categorias;
             desenhoDb.DataAtualizacao = DateTime.Now;

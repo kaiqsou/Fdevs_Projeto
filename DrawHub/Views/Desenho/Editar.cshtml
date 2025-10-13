@@ -1,5 +1,62 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Desenho
+
 @{
+    ViewData["Title"] = "Editar Desenho";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Editar Desenho</h2>
+
+    <form asp-action="Editar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="Id" />
+
+        <!-- Título -->
+        <div class="mb-3">
+            <label asp-for="Titulo" class="form-label"></label>
+            <input asp-for="Titulo" name="Titulo" class="form-control" placeholder="@Model.Titulo" />
+            @Html.ValidationMessageFor(x => x.Titulo)
+        </div>
+
+        <!-- Descrição -->
+        <div class="mb-3">
+            <label asp-for="Descricao" class="form-label"></label>
+            <textarea type="textarea" asp-for="Descricao" name="Descricao" class="form-control" placeholder="@Model.Descricao" rows="3"></textarea>
+            @Html.ValidationMessageFor(x => x.Descricao)
+        </div>
+
+        <!-- Imagem atual -->
+            <div class="mb-3 text-center">
+                <img src="@Model.ImagemCaminho" alt="@Model.Titulo" class="img-fluid" />
+            </div>
+
+        <!-- Privacidade -->
+        <div class="form-check mb-3">
+            <label asp-for="Privacidade" class="form-check-label">Privado</label>
+            <input asp-for="Privacidade" name="Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+    </form>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.querySelector('input[type="file"]').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const img = document.getElementById('preview-imagem');
+                img.src = event.target.result;
+                img.classList.remove('d-none');
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
 }

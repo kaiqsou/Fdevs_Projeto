@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DrawHub.Models.Desenho>
+
+@{
+    ViewData["Title"] = "Meus Desenhos";
+}
+
+@if (TempData["MsgSucesso"] != null)
+{
+    <div class="alert alert-success">@TempData["MsgSucesso"]</div>
+}
+
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var desenho in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+
+                    @if (!string.IsNullOrEmpty(desenho.ImagemCaminho))
+                    {
+                        <img src="@desenho.ImagemCaminho" alt="@desenho.Titulo" class="card-img-top" style="height: 200px;object-fit: cover;" />
+                    }
+
+                    <div class="card-body">
+                        <h5 class="card-title">@desenho.Titulo</h5>
+                        <p class="card-text">@desenho.Descricao</p>
+                        <p class="card-text">
+                            <small class="text-muted">Enviado em: @desenho.DataEnvio?.ToString("dd/MM/yyyy")</small>
+
+                            @if (desenho.DataAtualizacao.HasValue)
+                            {
+                                <br><small class="text-muted">Atualizado em: @desenho.DataAtualizacao?.ToString("dd/MM/yyyy")</small>
+                            }
+                        </p>
+                    </div>
+
+                     <div class="card-footer">
+                         <form asp-controller="Desenho" asp-action="Editar" asp-route-id="@desenho.Id" method="get" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-primary">Editar</button>
+                         </form>
+
+                         <form asp-controller="Desenho" asp-action="Excluir" asp-route-id="@desenho.Id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                         </form>
+                     </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-md-5 mb-5"><p>Não há desenhos registrados ainda.</p></div>
+    }
+</div>

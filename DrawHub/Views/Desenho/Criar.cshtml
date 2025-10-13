@@ -6,20 +6,13 @@
 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Criar Desenho</h2>
-    
-    @if (ViewData["MsgSucesso"] != null)
-    {
-        <div class="alert alert-success">@ViewData["MsgSucesso"]</div>
-    }
 
-    @if (ViewData["MsgErro"] != null)
+    @if (TempData["MsgErro"] != null)
     {
-        <div class="alert alert-danger">@ViewData["MsgErro"]</div>
+        <div class="alert alert-danger">@TempData["MsgErro"]</div>
     }
 
     <form asp-action="Criar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
-
-
 
         <!-- Título -->
         <div class="mb-3">
@@ -37,9 +30,9 @@
 
         <!-- Imagem -->
         <div class="mb-3">
-            <label asp-for="Imagem" class="form-label">Imagem</label>
-            <input asp-for="Imagem" name="Imagem" type="file" class="form-control" accept="image/*" />
-            @Html.ValidationMessageFor(x => x.Imagem)
+            <label asp-for="ArquivoImagem" class="form-label">Imagem</label>
+            <input asp-for="ArquivoImagem" name="ArquivoImagem" type="file" class="form-control" accept="image/*" />
+            @Html.ValidationMessageFor(x => x.ArquivoImagem)
         </div>
 
         <!-- Pré-visualização da imagem -->

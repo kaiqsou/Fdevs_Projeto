@@ -32,12 +32,23 @@ namespace DrawHub.Controllers
 
         public IActionResult Editar(int id)
         {
-            return View();
+            Usuario userLogado = _sessao.BuscarSessao();
+            Desenho desenho = _desenhoRepositorio.BuscarPorId(id);
+
+            return View(desenho);
         }
 
         public IActionResult Detalhes(int id)
         {
             return View();
+        }
+
+        public IActionResult MeusDesenhos(int id)
+        {
+            Usuario userLogado = _sessao.BuscarSessao();
+            List<Desenho> desenhosUser = _desenhoRepositorio.BuscarTodosPorUser(userLogado.Id);
+
+            return View(desenhosUser);
         }
 
         public IActionResult ConfirmarExclusao(int id)
@@ -47,13 +58,20 @@ namespace DrawHub.Controllers
 
         // Métodos [POST]
         [HttpPost]
-        public IActionResult Criar(Desenho desenho, IFormFile imagem)
+        public IActionResult Criar(Desenho desenho)
         {
-            ModelState.Remove("Imagem");
-
-            if (imagem == null || imagem.Length == 0)
+            if (desenho.ArquivoImagem == null || desenho.ArquivoImagem.Length == 0)
             {
-                ModelState.AddModelError("Imagem", "Selecione uma imagem!");
+                ModelState.AddModelError("ArquivoImagem", "Por favor, selecione uma imagem.");
+                return View(desenho);
+            }
+
+            var extensoesValidas = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            var extensao = Path.GetExtension(desenho.ArquivoImagem.FileName).ToLower();
+
+            if (!extensoesValidas.Contains(extensao))
+            {
+                ModelState.AddModelError("ArquivoImagem", "Formato de arquivo inválido!");
                 return View(desenho);
             }
 
@@ -61,22 +79,27 @@ namespace DrawHub.Controllers
             {
                 try
                 {
-                    using var memoryStream = new MemoryStream();
-                    imagem.CopyTo(memoryStream);
-                    desenho.Imagem = Convert.ToBase64String(memoryStream.ToArray());
+                    var nomeImagem = $"{Guid.NewGuid()}{extensao}";
+                    var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", nomeImagem);
 
-                    Usuario userLogado = _sessao.BuscarSessao();
-                    desenho.UsuarioId = userLogado.Id;
+                    using (var stream = new FileStream(caminho, FileMode.Create))
+                    {
+                        desenho.ArquivoImagem.CopyTo(stream);
+                    }
+
+                    desenho.ImagemCaminho = $"/img/{nomeImagem}";
+                    desenho.UsuarioId = _sessao.BuscarSessao().Id;
+                    desenho.DataEnvio = DateTime.Now;
 
                     _desenhoRepositorio.Adicionar(desenho);
-                    ViewData["MsgSucesso"] = "Desenho adicionado com sucesso!";
-                    ModelState.Clear();
 
-                    return View(desenho);
+                    TempData["MsgSucesso"] = "Desenho adicionado com sucesso!";
+
+                    return RedirectToAction("MeusDesenhos");
                 }
                 catch (Exception erro)
                 {
-                    ViewData["MsgErro"] = $"Erro ao adicionar o desenho! Mais detalhes: {erro.Message}";
+                    TempData["MsgErro"] = $"Erro ao adicionar o desenho! Mais detalhes: {erro.Message}";
                 }
             }
 

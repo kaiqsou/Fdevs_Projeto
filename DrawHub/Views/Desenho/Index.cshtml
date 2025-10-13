@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DrawHub.Models.Desenho>
 
 @{
-    ViewData["Title"] = "Página Inicial";
+    ViewData["Title"] = "Desenhos";
 }
 
 <div class="row">
@@ -14,12 +14,9 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
 
-                        @if (!string.IsNullOrEmpty(desenho.Imagem))
+                        @if (!string.IsNullOrEmpty(desenho.ImagemCaminho))
                         {
-                            <img src="data:image/jpeg;base64,@desenho.Imagem"
-                                 class="card-img-top"
-                                 alt="@desenho.Titulo"
-                                 style="height: 200px;object-fit: cover;">
+                            <img src="@desenho.ImagemCaminho" alt="@desenho.Titulo" class="card-img-top" style="height: 200px;object-fit: cover;" />
                         }
 
                         <div class="card-body">
@@ -31,6 +28,7 @@
                                 {
                                     <br><small class="text-muted">Atualizado em: @desenho.DataAtualizacao?.ToString("dd/MM/yyyy")</small>
                                 }
+                                <br /><small class="text-muted">Desenhista: @desenho.Usuario.Nome</small>
                             </p>
                         </div>
 
@@ -43,5 +41,9 @@
                 </div>
             }
         }
+    }
+    else
+    {
+        <div class="col-md-5 mb-5"><p>Não há desenhos registrados ainda.</p></div>
     }
 </div>

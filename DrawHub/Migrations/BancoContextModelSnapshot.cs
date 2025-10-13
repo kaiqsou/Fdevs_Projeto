@@ -63,18 +63,21 @@ namespace DrawHub.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("Imagem")
+                    b.Property<string>("ImagemCaminho")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Privacidade")
                         .HasColumnType("bit");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -136,7 +139,9 @@ namespace DrawHub.Migrations
                 {
                     b.HasOne("DrawHub.Models.Usuario", "Usuario")
                         .WithMany("Desenhos")
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Usuario");
                 });
