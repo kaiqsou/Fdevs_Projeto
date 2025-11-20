@@ -23,16 +23,22 @@ namespace DrawHub.Models
 
         [NotMapped]
         [Display(Name = "Selecione a imagem")]
-        [Required(ErrorMessage = "Por favor, selecione uma imagem!")]
         public IFormFile? ArquivoImagem {  get; set; }
 
         [Display(Name = "Privacidade")]
         public bool Privacidade { get; set; } = false;
 
         public DateTime? DataEnvio { get; set; }
+
         public DateTime? DataAtualizacao { get; set; }
-        public virtual List<Categoria>? Categorias { get; set; }
+
+        [Required]
+        public int CategoriaId { get; set; }
+
+        public Categoria? Categoria { get; set; }
+
         public int UsuarioId { get; set; }
+
         public Usuario? Usuario { get; set; }
 
         // Métodos

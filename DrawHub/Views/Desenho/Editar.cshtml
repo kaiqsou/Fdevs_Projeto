@@ -1,4 +1,4 @@
-﻿@model Desenho
+﻿@model DrawHub.ViewModels.DesenhoCategoriaViewModel
 
 @{
     ViewData["Title"] = "Editar Desenho";
@@ -9,31 +9,50 @@
 
     <form asp-action="Editar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
 
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Desenho.Id" />
 
         <!-- Título -->
         <div class="mb-3">
-            <label asp-for="Titulo" class="form-label"></label>
-            <input asp-for="Titulo" name="Titulo" class="form-control" placeholder="@Model.Titulo" />
-            @Html.ValidationMessageFor(x => x.Titulo)
+            <label asp-for="Desenho.Titulo" class="form-label"></label>
+            <input asp-for="Desenho.Titulo" class="form-control" placeholder="@Model.Desenho.Titulo" />
+            @Html.ValidationMessageFor(x => x.Desenho.Titulo)
         </div>
 
         <!-- Descrição -->
         <div class="mb-3">
-            <label asp-for="Descricao" class="form-label"></label>
-            <textarea type="textarea" asp-for="Descricao" name="Descricao" class="form-control" placeholder="@Model.Descricao" rows="3"></textarea>
-            @Html.ValidationMessageFor(x => x.Descricao)
+            <label asp-for="Desenho.Descricao" class="form-label"></label>
+            <textarea type="textarea" asp-for="Desenho.Descricao" class="form-control" placeholder="@Model.Desenho.Descricao" rows="3"></textarea>
+            @Html.ValidationMessageFor(x => x.Desenho.Descricao)
+        </div>
+
+        <!-- Categoria -->
+        <div class="mb-3">
+            <label asp-for="CategoriaId" class="form-label">Categoria</label>
+            <select asp-for="CategoriaId" class="form-control">
+                <option value="">Selecione uma categoria</option>
+                @foreach (var categoria in Model.Categorias)
+                {
+                    <option value="@categoria.Id">@categoria.Nome</option>
+                }
+            </select>
+            <span asp-validation-for="CategoriaId" class="text-danger"></span>
+        </div>
+
+        <!-- Nova Imagem -->
+        <div class="mb-3">
+            <label asp-for="Desenho.ArquivoImagem" class="form-label">Alterar Imagem (Opcional)</label>
+            <input asp-for="Desenho.ArquivoImagem" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
         </div>
 
         <!-- Imagem atual -->
             <div class="mb-3 text-center">
-                <img src="@Model.ImagemCaminho" alt="@Model.Titulo" class="img-fluid" />
+                <img src="@Model.Desenho.ImagemCaminho" alt="@Model.Desenho.Titulo" class="img-fluid" />
             </div>
 
         <!-- Privacidade -->
         <div class="form-check mb-3">
-            <label asp-for="Privacidade" class="form-check-label">Privado</label>
-            <input asp-for="Privacidade" name="Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
+            <label asp-for="Desenho.Privacidade" class="form-check-label">Privado</label>
+            <input asp-for="Desenho.Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
         </div>
 
         <button type="submit" class="btn btn-primary">Salvar</button>
@@ -46,17 +65,22 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
-        document.querySelector('input[type="file"]').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (!file) return;
+        const fileInput = document.querySelector('input[type="file"]');
+        if (fileInput) {
+            fileInput.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (!file) return;
 
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                const img = document.getElementById('preview-imagem');
-                img.src = event.target.result;
-                img.classList.remove('d-none');
-            };
-            reader.readAsDataURL(file);
-        });
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const img = document.getElementById('preview-imagem');
+                    if (img) {
+                        img.src = event.target.result;
+                        img.classList.remove('d-none');
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
     </script>
 }

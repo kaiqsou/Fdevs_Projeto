@@ -1,4 +1,4 @@
-﻿@model DrawHub.ViewModels.UsuarioDesenhoViewModel
+﻿@model DrawHub.ViewModels.DetalhesDesenhoViewModel
 
 @{
     ViewData["Title"] = "Detalhes do Desenho";
@@ -20,14 +20,11 @@
 
                     <p class="text-muted mb-2"><strong>Enviado por:</strong> @Model.Desenho.Usuario.Nome</p>
 
-                    @if (Model.Desenho.Categorias != null && Model.Desenho.Categorias.Any())
+                    @if (Model.Desenho.Categoria != null)
                     {
                         <p class="text-muted mb-2">
                             <strong>Categorias:</strong>
-                            @foreach (var cat in Model.Desenho.Categorias)
-                            {
-                                <span class="badge bg-primary me-1">@cat.Nome</span>
-                            }
+                            <span class="badge bg-black me-1">@Model.Categoria.Nome</span>
                         </p>
                     }
 
@@ -40,7 +37,7 @@
                     @if (Model.Desenho.DataAtualizacao != null)
                     {
                         <p class="text-muted mb-2">
-                            <strong>Última atualização:</strong> Model.DataAtualizacao?.ToString("dd/MM/yyyy HH:mm"))
+                            <strong>Última atualização:</strong> @Model.Desenho.DataAtualizacao?.ToString("dd/MM/yyyy HH:mm"))
                         </p>
                     }
 
@@ -52,7 +49,7 @@
                         @if(Model.Desenho.Usuario.Id == Model.Usuario?.Id)
                         {
                                 <a asp-controller="Desenho" asp-action="Editar" asp-route-id="@Model.Desenho.Id" class="btn btn-primary">Editar</a>
-                                <a asp-controller="Desenho" asp-action="Excluir" asp-route-id="@Model.Desenho.Id" class="btn btn-danger">Excluir</a>
+                                <a asp-controller="Desenho" asp-action="ConfirmarExclusao" asp-route-id="@Model.Desenho.Id" class="btn btn-danger">Excluir</a>
                         }
                         <a asp-controller="Desenho" asp-action="Index" class="btn btn-secondary">Voltar</a>
                     </div>

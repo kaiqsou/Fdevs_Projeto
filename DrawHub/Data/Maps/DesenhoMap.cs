@@ -10,7 +10,7 @@ namespace DrawHub.Data.Maps
         {
             builder.HasKey(x => x.Id);
             builder.HasOne(x => x.Usuario);
-            builder.HasMany(x => x.Categorias);
+            builder.HasOne(x => x.Categoria);
         }
     }
 }

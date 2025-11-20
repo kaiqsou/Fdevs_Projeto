@@ -1,5 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<DrawHub.Models.Categoria>
+
 @{
+    ViewData["Title"] = "Categorias";
 }
+
+<h1>Categorias</h1>
+<a asp-controller="Categoria" asp-action="Criar" class="btn btn-primary">Criar Categoria</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Criação</th>
+            <th>Quantidade de Desenhos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Nome</td>
+                <td>@categoria.DataCriacao?.ToString("dd/MM/yyyy")</td>
+                <td>@categoria.Desenhos?.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

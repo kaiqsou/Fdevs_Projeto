@@ -36,13 +36,8 @@
                     </div>
 
                      <div class="card-footer">
-                         <form asp-controller="Desenho" asp-action="Editar" asp-route-id="@desenho.Id" method="get" class="d-inline">
-                            <button type="submit" class="btn btn-sm btn-primary">Editar</button>
-                         </form>
-
-                         <form asp-controller="Desenho" asp-action="Excluir" asp-route-id="@desenho.Id" method="post" class="d-inline">
-                            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                         </form>
+                        <a asp-controller="Desenho" asp-action="Editar" asp-route-id="@desenho.Id" class="btn btn-primary">Editar</a>
+                        <a asp-controller="Desenho" asp-action="ConfirmarExclusao" asp-route-id="@desenho.Id" class="btn btn-danger">Excluir</a>
                      </div>
                 </div>
             </div>

@@ -1,14 +1,23 @@
 ﻿using DrawHub.Models;
+using DrawHub.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrawHub.Controllers
 {
     public class CategoriaController : Controller
     {
+        private readonly ICategoriaRepositorio _categoriaRepositorio;
+        public CategoriaController(ICategoriaRepositorio categoriaRepositorio)
+        {
+            _categoriaRepositorio = categoriaRepositorio;
+        }
+
         // Métodos [GET]
         public IActionResult Index()
         {
-            return View();
+            var categorias = _categoriaRepositorio.BuscarTodos();
+
+            return View(categorias);
         }
 
         public IActionResult Criar()
@@ -27,9 +36,24 @@ namespace DrawHub.Controllers
         }
 
         // Métodos [POST]
+        [HttpPost]
         public IActionResult Criar(Categoria categoria)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var novaCategoria = _categoriaRepositorio.Adicionar(categoria);
+
+                    return RedirectToAction("Index");
+                }
+                catch (Exception erro)
+                {
+                    TempData["MsgErro"] = $"Erro ao adicionar a categoria! Mais detalhes: {erro.Message}";
+                }
+            }
+
+            return View(categoria);
         }
 
         public IActionResult Editar(Categoria categoria)

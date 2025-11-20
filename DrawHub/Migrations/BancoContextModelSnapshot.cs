@@ -19,21 +19,6 @@ namespace DrawHub.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CategoriaDesenho", b =>
-                {
-                    b.Property<int>("CategoriasId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DesenhosId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriasId", "DesenhosId");
-
-                    b.HasIndex("DesenhosId");
-
-                    b.ToTable("CategoriaDesenho");
-                });
-
             modelBuilder.Entity("DrawHub.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
@@ -41,8 +26,12 @@ namespace DrawHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Nome")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -55,6 +44,9 @@ namespace DrawHub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoriaId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DataAtualizacao")
                         .HasColumnType("datetime2");
@@ -81,6 +73,8 @@ namespace DrawHub.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
 
                     b.HasIndex("UsuarioId");
 
@@ -120,30 +114,28 @@ namespace DrawHub.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("CategoriaDesenho", b =>
-                {
-                    b.HasOne("DrawHub.Models.Categoria", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriasId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DrawHub.Models.Desenho", null)
-                        .WithMany()
-                        .HasForeignKey("DesenhosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DrawHub.Models.Desenho", b =>
                 {
+                    b.HasOne("DrawHub.Models.Categoria", "Categoria")
+                        .WithMany("Desenhos")
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DrawHub.Models.Usuario", "Usuario")
                         .WithMany("Desenhos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Categoria");
+
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("DrawHub.Models.Categoria", b =>
+                {
+                    b.Navigation("Desenhos");
                 });
 
             modelBuilder.Entity("DrawHub.Models.Usuario", b =>

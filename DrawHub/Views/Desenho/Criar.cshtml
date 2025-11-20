@@ -1,4 +1,4 @@
-﻿@model DrawHub.Models.Desenho
+﻿@model DrawHub.ViewModels.DesenhoCategoriaViewModel
 
 @{
     ViewData["Title"] = "Publicar";
@@ -16,23 +16,23 @@
 
         <!-- Título -->
         <div class="mb-3">
-            <label asp-for="Titulo" class="form-label"></label>
-            <input asp-for="Titulo" name="Titulo" class="form-control" placeholder="Digite um título para o desenho" />
-            @Html.ValidationMessageFor(x => x.Titulo)
+            <label asp-for="Desenho.Titulo" class="form-label"></label>
+            <input asp-for="Desenho.Titulo" class="form-control" placeholder="Digite um título para o desenho" />
+            @Html.ValidationMessageFor(x => x.Desenho.Titulo)
         </div>
 
         <!-- Descrição -->
         <div class="mb-3">
-            <label asp-for="Descricao" class="form-label"></label>
-            <textarea type="textarea" asp-for="Descricao" name="Descricao" class="form-control" placeholder="Digite uma breve descrição..." rows="3"></textarea>
-            @Html.ValidationMessageFor(x => x.Descricao)
+            <label asp-for="Desenho.Descricao" class="form-label"></label>
+            <textarea type="textarea" asp-for="Desenho.Descricao" class="form-control" placeholder="Digite uma breve descrição..." rows="3"></textarea>
+            @Html.ValidationMessageFor(x => x.Desenho.Descricao)
         </div>
 
         <!-- Imagem -->
         <div class="mb-3">
-            <label asp-for="ArquivoImagem" class="form-label">Imagem</label>
-            <input asp-for="ArquivoImagem" name="ArquivoImagem" type="file" class="form-control" accept="image/*" />
-            @Html.ValidationMessageFor(x => x.ArquivoImagem)
+            <label asp-for="Desenho.ArquivoImagem" class="form-label">Imagem</label>
+            <input asp-for="Desenho.ArquivoImagem" type="file" class="form-control" accept="image/*" />
+            @Html.ValidationMessageFor(x => x.Desenho.ArquivoImagem)
         </div>
 
         <!-- Pré-visualização da imagem -->
@@ -40,10 +40,24 @@
             <img id="preview-imagem" src="#" alt="Pré-visualização" class="img-fluid rounded shadow-sm d-none" style="max-height: 200px;" />
         </div>
 
+        <!-- Categorias -->
+        <div class="mb-3">
+            <label asp-for="CategoriaId" class="form-label">Categorias:</label>
+            <select id="categoriaId" name="categoriaId">
+                <option value="">Selecione</option>
+                @foreach (var categoria in Model.Categorias)
+                {
+                    <option value="@categoria.Id">@categoria.Nome</option>
+                }
+            </select><br />
+            @Html.ValidationMessageFor(x => x.Desenho.CategoriaId)
+        </div>
+        
+
         <!-- Privacidade -->
-        <div class="form-check mb-3">
-            <label asp-for="Privacidade" class="form-check-label">Privado</label>
-            <input asp-for="Privacidade" name="Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
+        <div class="form-check mb-3 mt-5">
+            <label asp-for="Desenho.Privacidade" class="form-check-label">Privado</label>
+            <input asp-for="Desenho.Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
         </div>
 
         <button type="submit" class="btn btn-primary">Criar</button>

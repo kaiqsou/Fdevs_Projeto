@@ -1,5 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model DrawHub.Models.Categoria
+
 @{
+    ViewData["Title"] = "Criar Categoria";
 }
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Criar Categoria</h2>
+
+    @if (TempData["MsgErro"] != null)
+    {
+        <div class="alert alert-danger">@TempData["MsgErro"]</div>
+    }
+
+    <form asp-action="Criar" asp-controller="Categoria" method="post" class="border p-4 rounded bg-light shadow-sm">
+
+        <!-- Nome -->
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" name="Nome" class="form-control" placeholder="Digite um nome para a categoria" />
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+
+        <a class="btn btn-primary" asp-controller="Categoria" asp-action="Criar" role="button">Criar</a>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+    </form>
+
+</div>
