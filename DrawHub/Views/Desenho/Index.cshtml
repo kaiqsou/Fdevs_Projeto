@@ -33,12 +33,10 @@
                         </div>
 
                         <div class="card-footer">
-                            <form asp-controller="Desenho" asp-action="Detalhes" asp-route-id="@desenho.Id" method="get" class="d-inline">
-                                <button type="submit" class="btn btn-sm btn-success">Detalhes</button>
-                            </form>
+                            <a asp-controller="Desenho" asp-action="Detalhes" asp-route-id="@desenho.Id" class="btn btn-sm btn-success">Detalhes</a>
                         </div>
                     </div>
-                </div>
+                </div>  
             }
         }
     }

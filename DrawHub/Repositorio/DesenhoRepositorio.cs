@@ -43,12 +43,12 @@ namespace DrawHub.Repositorio
 
         public Desenho BuscarPorId(int id)
         {
-            return _context.Desenhos.Include(u => u.Usuario).FirstOrDefault(x => x.Id == id);
+            return _context.Desenhos.Include(u => u.Usuario).Include(c => c.Categorias).FirstOrDefault(x => x.Id == id);
         }
 
         public List<Desenho> BuscarTodos()
         {
-            return _context.Desenhos.Include(u => u.Usuario).Where(x => x.Privacidade != true).ToList();
+            return _context.Desenhos.Include(u => u.Usuario).Include(c => c.Categorias).Where(x => x.Privacidade != true).ToList();
         }
 
         public List<Desenho> BuscarTodosPorUser(int userId)

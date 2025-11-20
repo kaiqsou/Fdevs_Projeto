@@ -24,7 +24,7 @@ namespace DrawHub.Models
         [NotMapped]
         [Display(Name = "Selecione a imagem")]
         [Required(ErrorMessage = "Por favor, selecione uma imagem!")]
-        public IFormFile ArquivoImagem {  get; set; }
+        public IFormFile? ArquivoImagem {  get; set; }
 
         [Display(Name = "Privacidade")]
         public bool Privacidade { get; set; } = false;

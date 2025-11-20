@@ -1,6 +1,7 @@
 ﻿using DrawHub.Helpers;
 using DrawHub.Models;
 using DrawHub.Repositorio;
+using DrawHub.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,8 +40,20 @@ namespace DrawHub.Controllers
         }
 
         public IActionResult Detalhes(int id)
-        {
-            return View();
+        {   
+            Desenho desenho = _desenhoRepositorio.BuscarPorId(id);
+            UsuarioDesenhoViewModel detalhesDesenho = new UsuarioDesenhoViewModel
+            {
+                Desenho = desenho,
+                Usuario = _sessao.BuscarSessao(),
+            };
+
+            if (desenho == null)
+            {
+                return NotFound();
+            }
+
+            return View(detalhesDesenho);
         }
 
         public IActionResult MeusDesenhos(int id)
@@ -66,7 +79,7 @@ namespace DrawHub.Controllers
                 return View(desenho);
             }
 
-            var extensoesValidas = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+            var extensoesValidas = new[] { ".jpg", ".jpeg", ".png", ".gif", ".webp" };
             var extensao = Path.GetExtension(desenho.ArquivoImagem.FileName).ToLower();
 
             if (!extensoesValidas.Contains(extensao))

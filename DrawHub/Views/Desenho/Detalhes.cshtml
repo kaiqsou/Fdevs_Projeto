@@ -1,10 +1,63 @@
-﻿@model DrawHub.Models.Desenho
+﻿@model DrawHub.ViewModels.UsuarioDesenhoViewModel
 
 @{
-    ViewData["Title"] = "Detalhes";
+    ViewData["Title"] = "Detalhes do Desenho";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container my-5">
+    <div class="card shadow-lg">
+        <div class="row g-0">
+
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="@Model.Desenho.ImagemCaminho" class="img-fluid rounded" alt="Imagem do desenho" style="max-height: 100%; width: auto;">
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h2 class="card-title mb-3">@Model.Desenho.Titulo</h2>
+
+                    <p class="text-muted mb-2"><strong>Enviado por:</strong> @Model.Desenho.Usuario.Nome</p>
+
+                    @if (Model.Desenho.Categorias != null && Model.Desenho.Categorias.Any())
+                    {
+                        <p class="text-muted mb-2">
+                            <strong>Categorias:</strong>
+                            @foreach (var cat in Model.Desenho.Categorias)
+                            {
+                                <span class="badge bg-primary me-1">@cat.Nome</span>
+                            }
+                        </p>
+                    }
+
+                    <p class="text-muted mb-2"><strong>Privacidade:</strong> @(Model.Desenho.Privacidade ? "Privado" : "Público")</p>
+
+                    <p class="text-muted mb-2">
+                        <strong>Data de envio:</strong> @Model.Desenho.DataEnvio
+                    </p>
+
+                    @if (Model.Desenho.DataAtualizacao != null)
+                    {
+                        <p class="text-muted mb-2">
+                            <strong>Última atualização:</strong> Model.DataAtualizacao?.ToString("dd/MM/yyyy HH:mm"))
+                        </p>
+                    }
+
+                    <hr>
+
+                    <h5>Descrição</h5>
+                    <p class="card-text">@(!string.IsNullOrEmpty(Model.Desenho.Descricao) ? Model.Desenho.Descricao : "Sem descrição disponível")</p>
+                    <div class="mt-5">
+                        @if(Model.Desenho.Usuario.Id == Model.Usuario?.Id)
+                        {
+                                <a asp-controller="Desenho" asp-action="Editar" asp-route-id="@Model.Desenho.Id" class="btn btn-primary">Editar</a>
+                                <a asp-controller="Desenho" asp-action="Excluir" asp-route-id="@Model.Desenho.Id" class="btn btn-danger">Excluir</a>
+                        }
+                        <a asp-controller="Desenho" asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
