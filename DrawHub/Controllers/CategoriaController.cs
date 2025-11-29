@@ -1,9 +1,11 @@
-﻿using DrawHub.Models;
+﻿using DrawHub.Filters;
+using DrawHub.Models;
 using DrawHub.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrawHub.Controllers
 {
+    [AdminPage]
     public class CategoriaController : Controller
     {
         private readonly ICategoriaRepositorio _categoriaRepositorio;
@@ -27,12 +29,48 @@ namespace DrawHub.Controllers
 
         public IActionResult Editar(int id)
         {
-            return View();
+            Console.WriteLine($"[GET] TENTANDO ENCONTRAR ID: {id}");
+            var categoria = _categoriaRepositorio.BuscarPorId(id);
+
+            if (categoria == null)
+            {
+                Console.WriteLine("NAO ENCONTRADO!");
+                TempData["MsgErro"] = "Categoria não encontrada!";
+                return RedirectToAction("Index", "Categoria");
+            }
+
+            return View(categoria);
+        }
+
+        public IActionResult Excluir(int id)
+        {
+            try
+            {
+                bool apagado = _categoriaRepositorio.Excluir(id);
+
+                if (apagado)
+                {
+                    TempData["MensagemSucesso"] = "Categoria excluída com sucesso!";
+                }
+                else
+                {
+                    TempData["MensagemErro"] = "Erro na exclusão da categoria!";
+                }
+
+                return RedirectToAction("Index", "Categoria");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Erro na exclusão do desenho! Detalhes do erro: {erro.Message}";
+                return RedirectToAction("Index", "Categoria");
+            }
         }
 
         public IActionResult ConfirmarExclusao(int id)
         {
-            return View();
+            Categoria categoria = _categoriaRepositorio.BuscarPorId(id);
+
+            return View(categoria);
         }
 
         // Métodos [POST]
@@ -45,7 +83,7 @@ namespace DrawHub.Controllers
                 {
                     var novaCategoria = _categoriaRepositorio.Adicionar(categoria);
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Categoria");
                 }
                 catch (Exception erro)
                 {
@@ -56,14 +94,28 @@ namespace DrawHub.Controllers
             return View(categoria);
         }
 
+        [HttpPost]
         public IActionResult Editar(Categoria categoria)
         {
-            return View();
-        }
+            Console.WriteLine("Entrei no editar");
+            try
+            {
+                Console.WriteLine("Entrei no TRY do editar");
+                var categoriaDb = _categoriaRepositorio.BuscarPorId(categoria.Id);
 
-        public IActionResult Excluir(int id)
-        {
-            return View();
+                categoriaDb.Nome = categoria.Nome;
+                categoriaDb.DataAtualizacao = DateTime.Now;
+
+                _categoriaRepositorio.Atualizar(categoriaDb);
+
+                TempData["MsgSucesso"] = "Categoria atualizada com sucesso!";
+                return RedirectToAction("Index", "Categoria");
+            }
+            catch (Exception error)
+            {
+                TempData["MsgErro"] = $"Erro ao atualizar o desenho! Mais detalhes: {error.Message}";
+                return RedirectToAction("Index", "Categoria");
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ namespace DrawHub.Models
         [Required(ErrorMessage = "O nome é obrigatório")]
         public string? Nome { get; set; }
         public DateTime? DataCriacao { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
         public List<Desenho>? Desenhos { get; set; }
     }
 }

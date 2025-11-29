@@ -26,6 +26,9 @@ namespace DrawHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime?>("DataAtualizacao")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("DataCriacao")
                         .HasColumnType("datetime2");
 

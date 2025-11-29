@@ -1,7 +1,9 @@
 ﻿@model Usuario
+@using DrawHub.Enums
 
-<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DrawHub</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<a class="navbar-brand logo-header" asp-area="" asp-controller="Home" asp-action="Index">DrawHub</a>
+
+<button class="navbar-toggler botao-menu" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
 </button>
 
@@ -10,32 +12,42 @@
     <ul class="navbar-nav flex-grow-1">
 
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
+            <a class="nav-link link-header" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Desenho" asp-action="Index">Desenhos</a>
+            <a class="nav-link link-header" asp-area="" asp-controller="Desenho" asp-action="Index">Desenhos</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
-        </li>
-@if (Model != null)
+@if (Model != null && Model.Tipo == RoleEnum.Administrador)
+{
+    // Está logado e tem o tipo de Administrador
+    <li class="nav-item">
+        <a class="nav-link link-header" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link link-header" asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
+    </li>
+}
+
+@if (Model != null && Model.Tipo != RoleEnum.Administrador)
 {
         // Está logado
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Desenho" asp-action="MeusDesenhos">Meus Desenhos</a>
+            <a class="nav-link link-header" asp-area="" asp-controller="Desenho" asp-action="MeusDesenhos">Meus Desenhos</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Desenho" asp-action="Criar">Publicar</a>
+            <a class="nav-link link-header" asp-area="" asp-controller="Desenho" asp-action="Criar">Publicar</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
+            <a class="nav-link link-header" asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
         </li>
 }
-else
+
+@if (Model == null)
 {
         // Não está logado
         <li class="nav-item">

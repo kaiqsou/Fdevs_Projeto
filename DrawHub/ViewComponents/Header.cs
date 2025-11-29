@@ -13,7 +13,7 @@ namespace DrawHub.ViewComponents
             if (string.IsNullOrEmpty(sessao))
             {
                 // Retorna a view mesmo quando não há usuário logado
-                return View((Usuario)null);
+                return View((Usuario) null);
             }
 
             Usuario usuario = JsonConvert.DeserializeObject<Usuario>(sessao);

@@ -254,11 +254,9 @@ namespace DrawHub.Controllers
                 TempData["MsgSucesso"] = "Desenho atualizado com sucesso!";
                 return RedirectToAction("MeusDesenhos");
             }
-            catch (Exception erro)
+            catch (Exception error)
             {
-                Console.WriteLine($"[ERRO] Exceção ao editar: {erro.Message}");
-                Console.WriteLine($"[ERRO] StackTrace: {erro.StackTrace}");
-                TempData["MsgErro"] = $"Erro ao atualizar o desenho! Mais detalhes: {erro.Message}";
+                TempData["MsgErro"] = $"Erro ao atualizar o desenho! Mais detalhes: {error.Message}";
                 return RedirectToAction("MeusDesenhos");
             }
         }

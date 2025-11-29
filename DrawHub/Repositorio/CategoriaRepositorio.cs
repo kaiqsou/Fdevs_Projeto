@@ -38,7 +38,7 @@ namespace DrawHub.Repositorio
 
         public Categoria BuscarPorId(int id)
         {
-            return _context.Categorias.Include(u => u.Desenhos).FirstOrDefault(x => x.Id == id);
+            return _context.Categorias.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Categoria> BuscarTodos()
@@ -48,7 +48,14 @@ namespace DrawHub.Repositorio
 
         public bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            Categoria categoria = BuscarPorId(id);
+
+            if (categoria == null) throw new Exception("Houve um erro ao excluir a categoria!");
+
+            _context.Categorias.Remove(categoria);
+            _context.SaveChanges();
+
+            return true;
         }
     }
 }

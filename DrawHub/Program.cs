@@ -1,6 +1,7 @@
 using DrawHub.Data;
 using DrawHub.Helpers;
 using DrawHub.Repositorio;
+using DrawHub.Seeds;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +30,12 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<BancoContext>();
+    AdminSeeder.SeedAdmin(context);
 }
 
 app.UseStaticFiles();

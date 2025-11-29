@@ -11,8 +11,8 @@ namespace DrawHub.Models
         public string? Email { get; set; }
         public string? Telefone { get; set; } = null;
         public string? Senha { get; set; }
-        public RoleEnum? Tipo { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public RoleEnum? Tipo { get; set; } = RoleEnum.Padrão;
+        public DateTime DataCadastro { get; set; } = DateTime.Now;
         public DateTime? DataAtualizacao { get; set; }
         public virtual List<Desenho>? Desenhos { get; set; }
 
