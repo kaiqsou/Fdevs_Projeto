@@ -47,7 +47,7 @@ namespace DrawHub.Controllers
                         return RedirectToAction("Index", "Home");
                     }
 
-                    ViewData["MsgErro"] = "Usuário e/ou senha inválido(s). Por favor, tente novamente";
+                    ViewData["MsgErro"] = "Usuário e/ou senha inválido(s).";
                 }
                 return View("Index");
             }

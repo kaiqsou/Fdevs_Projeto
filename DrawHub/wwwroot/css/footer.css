@@ -1,0 +1,68 @@
+﻿footer.fundo-footer 
+{
+    background: linear-gradient(to top, #CC6666 15%, #D98C8C 70%, #E6A8A8 100%);
+    padding: 20px 0;
+    border-top: 2px solid #D98C8C;
+    color: #FFFFFF;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-links 
+{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-link 
+{
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: 0.2s;
+    text-decoration: none;
+    padding: 6px 12px;
+}
+
+.footer-link:hover 
+{
+    color: #FFF8DC;
+    text-shadow: 0px 0px 5px rgba(255, 248, 220, 0.5);
+    transform: translateY(-1px);
+}
+
+
+.footer-copyright 
+{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+html, body 
+{
+    height: 100%;
+}
+
+body 
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container main {
+    flex: 1;
+}

@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DrawHub</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/usuario_login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/usuario_cadastro.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/desenho_pagina.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/desenho_detalhes.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/desenho_meusdesenhos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/desenho_create.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DrawHub.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark fundo-header">
+        <nav class="navbar navbar-expand-sm navbar-dark fundo-header shadow-sm">
             <div class="container-fluid">
                 @await Component.InvokeAsync("Header")
             </div>
@@ -22,7 +31,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="fundo-footer mt-auto">
         <div class="container">
             @await Component.InvokeAsync("Footer")
         </div>

@@ -1,0 +1,109 @@
+﻿.desenhos-pagina 
+{
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    min-height: 80vh;
+    margin-top: 25px !important;
+    border-radius: 15px;
+}
+
+.desenhos-titulo 
+{
+    color: #CC6666 !important;
+    background: linear-gradient(135deg, #CC6666, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.desenho-card 
+{
+    border-radius: 1rem !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden;
+}
+
+.desenho-card:hover 
+{
+    transform: translateY(-8px) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+}
+
+.desenho-imagem-container 
+{
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.desenho-img 
+{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+.desenho-card:hover .desenho-img 
+{
+    transform: scale(1.05) !important;
+}
+
+.desenho-titulo 
+{
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #333 !important;
+}
+
+.desenho-descricao 
+{
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666 !important;
+}
+
+.desenho-btn 
+{
+    background: linear-gradient(135deg, #CC6666, #D98C8C) !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    padding: 10px 20px !important;
+    color: white !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.desenho-btn:hover 
+{
+    background: linear-gradient(135deg, #B25959, #C57A7A) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(204, 102, 102, 0.4) !important;
+    color: white !important;
+}
+
+.desenho-btn-vazio 
+{
+    background: linear-gradient(135deg, #CC6666, #D98C8C) !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    padding: 12px 30px !important;
+    color: white !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.desenho-btn-vazio :hover 
+{
+    background: linear-gradient(135deg, #B25959, #C57A7A) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(204, 102, 102, 0.4) !important;
+    color: white !important;
+}
+
+.sem-conteudo 
+{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}

@@ -4,66 +4,117 @@
     ViewData["Title"] = "Publicar";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Criar Desenho</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
 
-    @if (TempData["MsgErro"] != null)
-    {
-        <div class="alert alert-danger">@TempData["MsgErro"]</div>
-    }
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header py-4 text-white text-center rounded-top-3" style="background: linear-gradient(to right, #CC6666, #D98C8C, #E6A8A8);">
+                    <h2 class="mb-1 fw-bold">Publicar Desenho</h2>
+                    <p class="mb-0 opacity-75">Compartilhe sua arte com o mundo</p>
+                </div>
 
-    <form asp-action="Criar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
+                <div class="card-body p-4 p-md-5">
+                    @if (TempData["MsgErro"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show rounded-3" role="alert">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            @TempData["MsgErro"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
 
-        <!-- Título -->
-        <div class="mb-3">
-            <label asp-for="Desenho.Titulo" class="form-label"></label>
-            <input asp-for="Desenho.Titulo" class="form-control" placeholder="Digite um título para o desenho" />
-            @Html.ValidationMessageFor(x => x.Desenho.Titulo)
+                    <form asp-action="Criar" asp-controller="Desenho" method="post" enctype="multipart/form-data">
+                        <!-- Título -->
+                        <div class="mb-4">
+                            <label asp-for="Desenho.Titulo" class="form-label fw-semibold">Título do Desenho</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-pencil-alt icone"></i>
+                                </span>
+                                <input asp-for="Desenho.Titulo" class="form-control" placeholder="Digite um título criativo para seu desenho" />
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(t => t.Desenho.Titulo)</p>
+                        </div>
+
+                        <!-- Descrição -->
+                        <div class="mb-4">
+                            <label asp-for="Desenho.Descricao" class="form-label fw-semibold">Descrição</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light align-items-start">
+                                    <i class="fas fa-align-left text-muted mt-1"></i>
+                                </span>
+                                <textarea asp-for="Desenho.Descricao" class="form-control" placeholder="Conte um pouco sobre a sua arte, técnicas utilizadas, inspirações, etc..." rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Imagem -->
+                        <div class="mb-4">
+                            <label asp-for="Desenho.ArquivoImagem" class="form-label fw-semibold">Imagem do Desenho</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-image text-muted"></i>
+                                </span>
+                                <input asp-for="Desenho.ArquivoImagem" type="file" class="form-control" accept="image/*" />
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(arq => arq.Desenho.ArquivoImagem)</p>
+                        </div>
+
+                        <!-- Pré-visualização da imagem -->
+                        <div class="mb-4 text-center">
+                            <div class="border rounded-3 p-3 bg-light">
+                                <p class="text-muted mb-2 small">Pré-visualização</p>
+                                <img id="preview-imagem" src="#" alt="Pré-visualização do desenho" class="img-fluid rounded shadow-sm d-none" style="max-height: 200px;" />
+                                <div id="placeholder-imagem" class="text-muted">
+                                    <i class="fas fa-image fa-2x mb-2 d-block"></i>
+                                    <small>Sua imagem aparecerá aqui</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Categoria -->
+                        <div class="mb-4">
+                            <label asp-for="CategoriaId" class="form-label fw-semibold">Categoria</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-tag text-muted"></i>
+                                </span>
+                                <select id="categoriaId" name="categoriaId" class="form-select">
+                                    <option value="">Selecione uma categoria</option>
+                                    @foreach (var categoria in Model.Categorias)
+                                    {
+                                        <option value="@categoria.Id">@categoria.Nome</option>
+                                    }
+                                </select>
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(c => c.Desenho.CategoriaId)</p>
+                        </div>
+
+                        <!-- Privacidade -->
+                        <div class="mb-4">
+                            <div class="form-check form-switch">
+                                <input asp-for="Desenho.Privacidade" id="privacidade" type="checkbox" class="form-check-input" role="switch" />
+                                <label asp-for="Desenho.Privacidade" class="form-check-label fw-semibold">
+                                    <i class="fas fa-lock me-2"></i>Tornar desenho privado
+                                </label>
+                            </div>
+                            <small class="text-muted">Desenhos privados só são visíveis para você</small>
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="d-flex gap-3 mt-4">
+                            <button type="submit" class="btn btn-primary flex-fill py-2 fw-bold rounded-2" style="background: linear-gradient(to right, #CC6666, #D98C8C); border: none;">
+                                <i class="fas fa-upload me-2"></i>Publicar Desenho
+                            </button>
+                            <a class="btn btn-outline-secondary py-2 rounded-2 fw-bold" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-arrow-left me-2"></i>Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <!-- Descrição -->
-        <div class="mb-3">
-            <label asp-for="Desenho.Descricao" class="form-label"></label>
-            <textarea type="textarea" asp-for="Desenho.Descricao" class="form-control" placeholder="Digite uma breve descrição..." rows="3"></textarea>
-            @Html.ValidationMessageFor(x => x.Desenho.Descricao)
-        </div>
-
-        <!-- Imagem -->
-        <div class="mb-3">
-            <label asp-for="Desenho.ArquivoImagem" class="form-label">Imagem</label>
-            <input asp-for="Desenho.ArquivoImagem" type="file" class="form-control" accept="image/*" />
-            @Html.ValidationMessageFor(x => x.Desenho.ArquivoImagem)
-        </div>
-
-        <!-- Pré-visualização da imagem -->
-        <div class="mb-3 text-center">
-            <img id="preview-imagem" src="#" alt="Pré-visualização" class="img-fluid rounded shadow-sm d-none" style="max-height: 200px;" />
-        </div>
-
-        <!-- Categorias -->
-        <div class="mb-3">
-            <label asp-for="CategoriaId" class="form-label">Categorias:</label>
-            <select id="categoriaId" name="categoriaId">
-                <option value="">Selecione</option>
-                @foreach (var categoria in Model.Categorias)
-                {
-                    <option value="@categoria.Id">@categoria.Nome</option>
-                }
-            </select><br />
-            @Html.ValidationMessageFor(x => x.Desenho.CategoriaId)
-        </div>
-        
-
-        <!-- Privacidade -->
-        <div class="form-check mb-3 mt-5">
-            <label asp-for="Desenho.Privacidade" class="form-check-label">Privado</label>
-            <input asp-for="Desenho.Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Criar</button>
-        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
-    </form>
-
+    </div>
 </div>
 
 @section Scripts {
@@ -72,13 +123,21 @@
     <script>
         document.querySelector('input[type="file"]').addEventListener('change', function (e) {
             const file = e.target.files[0];
-            if (!file) return;
+            const preview = document.getElementById('preview-imagem');
+            const placeholder = document.getElementById('placeholder-imagem');
+
+            if (!file) 
+            {
+                preview.classList.add('d-none');
+                placeholder.classList.remove('d-none');
+                return;
+            }
 
             const reader = new FileReader();
             reader.onload = function (event) {
-                const img = document.getElementById('preview-imagem');
-                img.src = event.target.result;
-                img.classList.remove('d-none');
+                preview.src = event.target.result;
+                preview.classList.remove('d-none');
+                placeholder.classList.add('d-none');
             };
             reader.readAsDataURL(file);
         });

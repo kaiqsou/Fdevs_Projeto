@@ -5,30 +5,98 @@
     ViewData["Title"] = "Login";
 }
 
-@if (ViewData["MsgErro"] != null)
-{
-    <div class="alert alert-danger" role="alert">
-        @ViewData["MsgErro"]
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+            <div class="card shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-header py-4 text-white text-center" style="background: linear-gradient(to right, #CC6666, #D98C8C, #E6A8A8); border-radius: 1rem 1rem 0 0; border: none;">
+                    <h2 class="mb-1 fw-bold">Bem-vindo de volta</h2>
+                    <p class="mb-0 opacity-75">Faça login em sua conta</p>
+                </div>
+
+                <div class="card-body p-4 p-md-5">
+                    @if (ViewData["MsgErro"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            @ViewData["MsgErro"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <form asp-controller="Login" asp-action="Entrar" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">E-mail</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-envelope text-muted"></i>
+                                </span>
+                                <input type="email" asp-for="Email" class="form-control" id="email" placeholder="seu@email.com">
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(e => e.Email)</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="senha" class="form-label fw-semibold">Senha</label>
+
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+
+                                <input type="password" asp-for="Senha" class="form-control" id="senha" placeholder="Sua senha">
+
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+
+                            <p class="text-danger">@Html.ValidationMessageFor(s => s.Senha)</p>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="lembrar">
+                            <label class="form-check-label" for="lembrar">
+                                Lembrar-me
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3 fw-bold" style="background: linear-gradient(to right, #CC6666, #D98C8C); border: none;">
+                            <i class="fas fa-sign-in-alt me-2"></i>Entrar
+                        </button>
+
+                        <div class="text-center">
+                            <p class="mb-0">
+                                Não possui uma conta?
+                                <a asp-action="Cadastrar" asp-controller="Usuario" class="fw-bold" style="color: #CC6666;">Cadastre-se</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-}
+</div>
 
-<form asp-controller="Login" asp-action="Entrar" method="post">
-    <div class="mb-3">
-        <label asp-for="Email" class="form-label">E-mail</label>
-        <input type="email" asp-for="Email" class="form-control" id="email" />
-        @Html.ValidationMessageFor(x => x.Email)
-    </div>
+<script>
+    // Mostrar/ocultar senha
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButton = document.getElementById('togglePassword');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', function() {
+                const passwordInput = document.getElementById('senha');
+                const icon = this.querySelector('i');
 
-    <div class="mb-3">
-        <label asp-for="Senha" class="form-label">Senha</label>
-        <input type="password" asp-for="Senha" class="form-control" id="senha">
-        @Html.ValidationMessageFor(x => x.Senha)
-    </div>
-
-    <p class="mb-4 text-sm mx-auto">
-        Não possui uma conta?
-        <a asp-action="Cadastrar" asp-controller="Usuario" class="text-primary text-gradient font-weight-bold">Cadastre-se</a>
-    </p>
-
-    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-</form>
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    });
+</script>

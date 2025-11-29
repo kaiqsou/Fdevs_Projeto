@@ -1,1 +1,53 @@
-﻿
+﻿.navbar-estilo 
+{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav.mx-auto 
+{
+    position: static;
+    left: auto;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navbar-nav.ms-auto 
+{
+    margin-left: auto !important;
+}
+
+.fundo-header {
+    background: linear-gradient(to bottom, #CC6666 15%, #D98C8C 70%, #E6A8A8 100%) !important;
+    padding: 12px 0;
+    border-bottom: 2px solid #D98C8C;
+    position: relative;
+}
+
+.link-header 
+{
+    color: #FFFFFF !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: 0.2s;
+    padding: 8px 16px !important;
+    margin: 0 4px;
+}
+
+.link-header:hover 
+{
+    text-shadow: 0px 0px 5px rgba(255, 248, 220, 0.5);
+    transform: translateY(-1px);
+}
+
+.botao-header 
+{
+    border-color: #FFFFFF;
+}
+
+.botao-header .navbar-toggler-icon 
+{
+    filter: invert(98%);
+}

@@ -116,7 +116,7 @@ namespace DrawHub.Controllers
             catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Erro na exclusão do desenho! Detalhes do erro: {erro.Message}";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "MeusDesenhos");
             }
         }
 

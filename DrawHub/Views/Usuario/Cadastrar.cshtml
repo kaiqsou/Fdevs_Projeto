@@ -1,65 +1,154 @@
 ﻿@model DrawHub.ViewModels.UsuarioCadastroViewModel
 
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Cadastrar";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Cadastre-se</h2>
+<div class="container py-5 fundo-cadastro">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <!-- Card de Cadastro -->
+            <div class="card shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-header py-4 text-white text-center" style="background: linear-gradient(to right, #CC6666, #D98C8C, #E6A8A8); border-radius: 1rem 1rem 0 0; border: none;">
+                    <h2 class="mb-1 fw-bold">Crie sua conta</h2>
+                    <p class="mb-0 opacity-75">Junte-se à nossa comunidade de artistas</p>
+                </div>
 
-    @if (TempData["MsgSucesso"] != null)
-    {
-        <div class="alert alert-success">@TempData["MsgSucesso"]</div>
-    }
+                <div class="card-body p-4 p-md-5">
+                    @if (TempData["MsgSucesso"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>
+                            @TempData["MsgSucesso"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
 
-    @if (TempData["MsgErro"] != null)
-    {
-        <div class="alert alert-danger">@TempData["MsgErro"]</div>
-    }
+                    @if (TempData["MsgErro"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                            @TempData["MsgErro"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
 
-    <form asp-action="Cadastrar" asp-controller="Usuario" method="post" class="border p-4 rounded bg-light shadow-sm">
+                    <form asp-action="Cadastrar" asp-controller="Usuario" method="post">
+                        <!-- Nome -->
+                        <div class="mb-3">
+                            <label asp-for="Nome" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-user text-muted"></i>
+                                </span>
+                                <input type="text" asp-for="Nome" class="form-control" placeholder="Digite seu nome completo" required>
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(n => n.Nome)</p>
+                        </div>
 
-        <!-- Nome -->
-        <div class="mb-3">
-            <label asp-for="Nome" class="form-label"></label>
-            <input type="text" asp-for="Nome" name="Nome" class="form-control" placeholder="Digite o seu nome" />
-            @Html.ValidationMessageFor(x => x.Nome)
+                        <!-- E-mail -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-envelope text-muted"></i>
+                                </span>
+                                <input type="email" asp-for="Email" class="form-control" placeholder="seu@email.com" required>
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(e => e.Email)</p>
+                        </div>
+
+                        <!-- Senha -->
+                        <div class="mb-3">
+                            <label asp-for="Senha" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input type="password" asp-for="Senha" class="form-control" id="senha" placeholder="Crie uma senha">
+                                <button class="btn btn-outline-secondary" type="button" id="toggleSenha">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(s => s.Senha)</p>
+                        </div>
+
+                        <!-- Confirmação de Senha -->
+                        <div class="mb-4">
+                            <label asp-for="ConfirmaSenha" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input type="password" asp-for="ConfirmaSenha" class="form-control" id="confirmaSenha" placeholder="Confirme sua senha" required>
+                                <button class="btn btn-outline-secondary" type="button" id="toggleConfirmaSenha">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <p class="text-danger">@Html.ValidationMessageFor(cs => cs.ConfirmaSenha)</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3 fw-bold" style="background: linear-gradient(to right, #CC6666, #D98C8C); border: none;">
+                            <i class="fas fa-user-plus me-2"></i>Cadastrar
+                        </button>
+
+                        <div class="text-center">
+                            <p class="mb-0">
+                                Já possui uma conta?
+                                <a asp-action="Index" asp-controller="Login" class="fw-bold" style="color: #CC6666;">Fazer login</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <!-- E-mail -->
-        <div class="mb-3">
-            <label asp-for="Email" class="form-label"></label>
-            <input type="email" asp-for="Email" name="Email" class="form-control" placeholder="Digite o seu e-mail" />
-            @Html.ValidationMessageFor(x => x.Email)
-        </div>
-
-        <!-- Senha -->
-        <div class="mb-3">
-            <label asp-for="Senha" class="form-label"></label>
-            <input type="password" asp-for="Senha" name="Senha" class="form-control" placeholder="Digite a senha" />
-            @Html.ValidationMessageFor(x => x.Senha)
-        </div>
-
-        <!-- Confirmação de Senha -->
-        <div class="mb-3">
-            <label asp-for="ConfirmaSenha" class="form-label"></label>
-            <input type="password" asp-for="ConfirmaSenha" name="ConfirmaSenha" class="form-control" placeholder="Digite a senha" />
-            @Html.ValidationMessageFor(x => x.ConfirmaSenha)
-        </div>
-
-        <p class="mb-4 text-sm mx-auto">
-            Já possui uma conta?
-            <a asp-action="Index" asp-controller="Login" class="text-primary text-gradient font-weight-bold">Entrar</a>
-        </p>
-
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
-
+    </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
     <script>
+        // Mostrar/ocultar senha
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle para senha
+            const toggleSenha = document.getElementById('toggleSenha');
+            if (toggleSenha) {
+                toggleSenha.addEventListener('click', function() {
+                    const passwordInput = document.getElementById('senha');
+                    const icon = this.querySelector('i');
+
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            }
+
+            // Toggle para confirmação de senha
+            const toggleConfirmaSenha = document.getElementById('toggleConfirmaSenha');
+            if (toggleConfirmaSenha) {
+                toggleConfirmaSenha.addEventListener('click', function() {
+                    const passwordInput = document.getElementById('confirmaSenha');
+                    const icon = this.querySelector('i');
+
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        passwordInput.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            }
+        });
     </script>
 }

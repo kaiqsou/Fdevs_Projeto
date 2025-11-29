@@ -1,0 +1,162 @@
+﻿.meus-desenhos-pagina 
+{
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 80vh;
+    padding-top: 40px;
+    margin-top: 25px !important;
+    border-radius: 15px;
+}
+
+.titulo-meus-desenhos 
+{
+    color: #CC6666;
+    background: linear-gradient(135deg, #CC6666, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.meus-desenhos-alerta 
+{
+    background: linear-gradient(135deg, #d1edff, #a3d5ff);
+    color: #155724;
+    border: none;
+    border-radius: 0.75rem;
+    border-left: 4px solid #198754;
+}
+
+.meus-desenhos-card 
+{
+    border-radius: 1rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.meus-desenhos-card:hover 
+{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.meus-desenhos-imagem-container 
+{
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.meus-desenhos-img 
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.meus-desenhos-card:hover .meus-desenhos-img 
+{
+    transform: scale(1.05);
+}
+
+
+.meus-desenhos-titulo 
+{
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+.meus-desenhos-descricao 
+{
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+.meus-desenhos-datas 
+{
+    font-size: 0.8rem;
+}
+
+.meus-desenhos-btn-detalhes 
+{
+    border: 2px solid #CC6666;
+    color: #CC6666;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.meus-desenhos-btn-detalhes:hover 
+{
+    background: #CC6666;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.meus-desenhos-btn-editar 
+{
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.meus-desenhos-btn-editar:hover 
+{
+    background: linear-gradient(135deg, #B25959, #C57A7A);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(204, 102, 102, 0.3);
+}
+
+.meus-desenhos-btn-excluir 
+{
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.meus-desenhos-btn-excluir:hover 
+{
+    background: linear-gradient(135deg, #c82333, #a71e2a);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.meus-desenhos-btn-criar 
+{
+    background: linear-gradient(135deg, #CC6666, #D98C8C);
+    border: none;
+    border-radius: 0.75rem;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.meus-desenhos-btn-criar:hover 
+{
+    background: linear-gradient(135deg, #B25959, #C57A7A);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(204, 102, 102, 0.4);
+}
+
+.sem-conteudo 
+{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.badge.bg-success 
+{
+    background: linear-gradient(135deg, #198754, #157347) !important;
+}
+
+.badge.bg-warning 
+{
+    background: linear-gradient(135deg, #ffc107, #e0a800) !important;
+}
