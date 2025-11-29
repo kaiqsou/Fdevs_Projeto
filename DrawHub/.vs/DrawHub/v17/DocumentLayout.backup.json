@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\home\\sobre.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\home\\sobre.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\desenho\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\desenho\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\desenho_meusdesenhos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\desenho_meusdesenhos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\desenho\\meusdesenhos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\desenho\\meusdesenhos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\home_inicio.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\home_inicio.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\desenho_create.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -19,40 +31,16 @@
       "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\desenho_pagina.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\desenho\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\desenho\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\usuario\\cadastrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\usuario\\cadastrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\desenho_meusdesenhos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\desenho_meusdesenhos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\desenho_detalhes.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\desenho_detalhes.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\desenho_meusdesenhos.css||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\desenho_meusdesenhos.css||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\desenho\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\desenho\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\desenho\\meusdesenhos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\desenho\\meusdesenhos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\controllers\\desenhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:controllers\\desenhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\views\\desenho\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:views\\desenho\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|c:\\users\\kaiqs\\desktop\\fdevs_projeto\\drawhub\\wwwroot\\css\\usuario_cadastro.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{47A49F5B-7098-41D1-9AAD-31795082CE88}|DrawHub.csproj|solutionrelative:wwwroot\\css\\usuario_cadastro.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,170 +55,131 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Sobre.cshtml",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Home\\Sobre.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Sobre.cshtml",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Home\\Sobre.cshtml",
-              "RelativeToolTip": "Views\\Home\\Sobre.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T06:49:27.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T06:49:12.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "desenho_create.css",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_create.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_create.css",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_create.css",
-              "RelativeToolTip": "wwwroot\\css\\desenho_create.css",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-29T06:28:48.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Criar.cshtml",
               "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\Criar.cshtml",
               "RelativeDocumentMoniker": "Views\\Desenho\\Criar.cshtml",
               "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\Criar.cshtml",
               "RelativeToolTip": "Views\\Desenho\\Criar.cshtml",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAowIAAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAMwGoAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T06:06:21.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "desenho_pagina.css",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_pagina.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_pagina.css",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_pagina.css",
-              "RelativeToolTip": "wwwroot\\css\\desenho_pagina.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-29T06:04:39.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "desenho_meusdesenhos.css",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_meusdesenhos.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_meusdesenhos.css",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_meusdesenhos.css",
-              "RelativeToolTip": "wwwroot\\css\\desenho_meusdesenhos.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-29T05:42:15.319Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "desenho_meusdesenhos.css",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_meusdesenhos.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_meusdesenhos.css",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_meusdesenhos.css",
-              "RelativeToolTip": "wwwroot\\css\\desenho_meusdesenhos.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-29T06:04:38.042Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Desenho\\Index.cshtml",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\Index.cshtml",
-              "RelativeToolTip": "Views\\Desenho\\Index.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T06:04:25.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DesenhoController.cs",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Controllers\\DesenhoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DesenhoController.cs",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Controllers\\DesenhoController.cs",
-              "RelativeToolTip": "Controllers\\DesenhoController.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAwHEAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T06:02:41.337Z",
+              "WhenOpened": "2025-11-29T08:43:12.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T05:50:40.855Z",
+              "Title": "desenho_create.css",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_create.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_create.css",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_create.css",
+              "RelativeToolTip": "wwwroot\\css\\desenho_create.css",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-29T08:41:42.792Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAFYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T08:37:11.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "home_inicio.css",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\home_inicio.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\home_inicio.css",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\home_inicio.css",
+              "RelativeToolTip": "wwwroot\\css\\home_inicio.css",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAAI0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-29T08:36:52.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MeusDesenhos.cshtml",
               "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\MeusDesenhos.cshtml",
               "RelativeDocumentMoniker": "Views\\Desenho\\MeusDesenhos.cshtml",
               "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\MeusDesenhos.cshtml",
               "RelativeToolTip": "Views\\Desenho\\MeusDesenhos.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAABtAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T05:40:29.446Z",
+              "WhenOpened": "2025-11-29T08:32:43.881Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Detalhes.cshtml",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\Detalhes.cshtml",
-              "RelativeDocumentMoniker": "Views\\Desenho\\Detalhes.cshtml",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Desenho\\Detalhes.cshtml",
-              "RelativeToolTip": "Views\\Desenho\\Detalhes.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAvwHIAAACFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-29T05:05:23.697Z",
+              "DocumentIndex": 1,
+              "Title": "desenho_meusdesenhos.css",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_meusdesenhos.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_meusdesenhos.css",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_meusdesenhos.css",
+              "RelativeToolTip": "wwwroot\\css\\desenho_meusdesenhos.css",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAiwJQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-29T08:31:21.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "desenho_pagina.css",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_pagina.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_pagina.css",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_pagina.css",
+              "RelativeToolTip": "wwwroot\\css\\desenho_pagina.css",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAF4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-29T08:29:02.291Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "desenho_detalhes.css",
-              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_detalhes.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\desenho_detalhes.css",
-              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\desenho_detalhes.css",
-              "RelativeToolTip": "wwwroot\\css\\desenho_detalhes.css",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAEAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Login\\Index.cshtml",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "Views\\Login\\Index.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAD8AAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T08:27:05.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Cadastrar.cshtml",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Usuario\\Cadastrar.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\Cadastrar.cshtml",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\Views\\Usuario\\Cadastrar.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\Cadastrar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-29T08:21:09.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "usuario_cadastro.css",
+              "DocumentMoniker": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\usuario_cadastro.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\usuario_cadastro.css",
+              "ToolTip": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\wwwroot\\css\\usuario_cadastro.css",
+              "RelativeToolTip": "wwwroot\\css\\usuario_cadastro.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-29T05:16:49.128Z",
+              "WhenOpened": "2025-11-29T08:19:44.477Z",
               "EditorCaption": ""
             },
             {

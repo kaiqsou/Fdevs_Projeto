@@ -1,8 +1,8 @@
 ﻿footer.fundo-footer 
 {
-    background: linear-gradient(to top, #CC6666 15%, #D98C8C 70%, #E6A8A8 100%);
+    background: firebrick;
     padding: 20px 0;
-    border-top: 2px solid #D98C8C;
+    border-top: 2px solid firebrick;
     color: #FFFFFF;
     position: relative;
     bottom: 0;

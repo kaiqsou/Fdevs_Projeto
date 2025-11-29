@@ -3,6 +3,11 @@
     border: none;
 }
 
+.card-header
+{
+    background: firebrick !important;
+}
+
 .form-control 
 {
     border: 1px solid #dee2e6;
@@ -30,7 +35,6 @@
 
 .btn-primary 
 {
-    background: linear-gradient(to right, #CC6666, #D98C8C);
     border: none;
     transition: all 0.3s ease;
 }

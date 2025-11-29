@@ -10,7 +10,7 @@
 .titulo-meus-desenhos 
 {
     color: #CC6666;
-    background: linear-gradient(135deg, #CC6666, #8B0000);
+    background: black;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -129,7 +129,8 @@
 
 .meus-desenhos-btn-criar 
 {
-    background: linear-gradient(135deg, #CC6666, #D98C8C);
+    color: white;
+    background: black;
     border: none;
     border-radius: 0.75rem;
     padding: 12px 30px;
@@ -137,9 +138,16 @@
     transition: all 0.3s ease;
 }
 
+.card-header {
+    background: black !important;
+    border: none;
+    padding: 2.5rem 1rem !important
+}
+
 .meus-desenhos-btn-criar:hover 
 {
-    background: linear-gradient(135deg, #B25959, #C57A7A);
+    color: white;
+    background: crimson;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(204, 102, 102, 0.4);
 }

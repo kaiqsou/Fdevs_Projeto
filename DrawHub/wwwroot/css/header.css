@@ -20,9 +20,9 @@
 }
 
 .fundo-header {
-    background: linear-gradient(to bottom, #CC6666 15%, #D98C8C 70%, #E6A8A8 100%) !important;
+    background: firebrick !important;
     padding: 12px 0;
-    border-bottom: 2px solid #D98C8C;
+    border-bottom: 1px solid firebrick;
     position: relative;
 }
 

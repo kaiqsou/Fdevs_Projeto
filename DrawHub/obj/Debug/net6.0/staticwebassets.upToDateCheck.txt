@@ -1,11 +1,10 @@
-wwwroot\css\desenho_create.css
 wwwroot\css\desenho_detalhes.css
 wwwroot\css\desenho_meusdesenhos.css
 wwwroot\css\desenho_pagina.css
 wwwroot\css\footer.css
 wwwroot\css\header.css
+wwwroot\css\home_inicio.css
 wwwroot\css\site.css
-wwwroot\css\usuario_cadastro.css
 wwwroot\css\usuario_login.css
 wwwroot\favicon.ico
 wwwroot\img\0115f2b3-1fad-4beb-8054-824c6ee03ff8.png
@@ -96,3 +95,5 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\desenho_create.css
+wwwroot\css\usuario_cadastro.css

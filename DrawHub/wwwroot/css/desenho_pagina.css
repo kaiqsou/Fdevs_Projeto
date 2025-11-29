@@ -8,10 +8,8 @@
 
 .desenhos-titulo 
 {
-    color: #CC6666 !important;
+    color: black !important;
     background: linear-gradient(135deg, #CC6666, #8B0000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
@@ -63,9 +61,8 @@
     color: #666 !important;
 }
 
-.desenho-btn 
-{
-    background: linear-gradient(135deg, #CC6666, #D98C8C) !important;
+.desenho-btn {
+    background: firebrick !important;
     border: none !important;
     border-radius: 0.75rem !important;
     padding: 10px 20px !important;
@@ -84,7 +81,7 @@
 
 .desenho-btn-vazio 
 {
-    background: linear-gradient(135deg, #CC6666, #D98C8C) !important;
+    background: black !important;
     border: none !important;
     border-radius: 0.75rem !important;
     padding: 12px 30px !important;
@@ -93,9 +90,9 @@
     transition: all 0.3s ease !important;
 }
 
-.desenho-btn-vazio :hover 
+.desenho-btn-vazio:hover 
 {
-    background: linear-gradient(135deg, #B25959, #C57A7A) !important;
+    background: crimson !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 4px 15px rgba(204, 102, 102, 0.4) !important;
     color: white !important;

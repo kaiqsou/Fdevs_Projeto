@@ -3,13 +3,37 @@
     border: none;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    min-height: 800px
+}
+
+.card-body 
+{
+    padding: 3rem 4rem !important;
+}
+
+.btn 
+{
+    padding: 14px 24px;
+    font-size: 1.2rem;
 }
 
 .card-header 
 {
-    background: linear-gradient(to right, #CC6666, #D98C8C, #E6A8A8) !important;
+    background: black !important;
     border: none;
+    padding: 2.5rem 1rem !important
 }
+
+.card-header h2
+{
+    font-size: 2.5rem;
+}
+
+.card-header p 
+{
+    font-size: 1.3rem;
+}
+
 
 .rounded-top-3 
 {
@@ -21,6 +45,8 @@
 {
     border: 1px solid #dee2e6;
     transition: all 0.3s ease;
+    padding: 12px 16px;
+    font-size: 1.1rem;
 }
 
 .form-control:focus 
@@ -31,7 +57,6 @@
 
 .input-group-text 
 {
-    background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-right: none;
 }
@@ -40,11 +65,13 @@
 {
     border: 1px solid #dee2e6;
     border-left: none;
+    padding: 12px 16px;
+    font-size: 1.1rem;
 }
 
 .btn-primary 
 {
-    background: linear-gradient(to right, #CC6666, #D98C8C);
+    background: firebrick;
     border: none;
     transition: all 0.3s ease;
 }
@@ -85,6 +112,12 @@
     border-color: #CC6666;
 }
 
+.form-label 
+{
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
 .form-switch .form-check-input:focus 
 {
     border-color: #CC6666;
@@ -109,4 +142,14 @@ body
 .shadow-lg 
 {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+
+#preview-imagem 
+{
+    max-height: 300px;
+}
+
+#placeholder-imagem .fa-image 
+{
+    font-size: 3rem;
 }

@@ -2,11 +2,91 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="pagina-inicial">
 
-<a class="navbar-brand logo-header d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
-    <img src="~/img/DrawHub-logo.png" alt="DrawHub" class="me-2 logo-image">
-</a>
+    <!-- Primeira Seção -->
+    <section class="primeira-secao">
+        <div class="container">
+            <div class="conteudo">
+                <div class="logo-container">
+                    <img src="~/img/DrawHub-logo.png" alt="DrawHub" class="logo-principal">
+                </div>
+
+                <h1 class="titulo-principal">
+                    Sua <span class="texto-destaque">Comunidade</span> de Arte
+                </h1>
+
+                <p class="descricao">
+                    Descubra, compartilhe e se inspire com artistas talentosos.<br />
+                    Mostre seu talento e faça parte da nossa comunidade.
+                </p>
+
+                <div class="botoes">
+                    <a asp-controller="Desenho" asp-action="Index" class="botao botao-explorar">
+                        <i class="fas fa-compass"></i>
+                        Explorar Galeria
+                    </a>
+
+                    <a asp-controller="Usuario" asp-action="Cadastrar" class="botao botao-cadastro">
+                        <i class="fas fa-user-plus"></i>
+                        Começar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segunda Seção -->
+    <section class="segunda-secao">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-secao">Por que escolher o DrawHub?</h2>
+                <p class="subtitulo-secao">Tudo que você precisa para sua jornada artística</p>
+            </div>
+            <div class="grade">
+                <div class="cartao">
+                    <div class="icone">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Comunidade Ativa</h3>
+                    <p>Acompanhe as novas obras de artistas talentosos.</p>
+                </div>
+                <div class="cartao">
+                    <div class="icone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Upload Simples</h3>
+                    <p>Compartilhe suas obras de forma fácil e rápida.</p>
+                </div>
+                <div class="cartao">
+                    <div class="icone">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Privacidade</h3>
+                    <p>Controle quem pode ver suas criações.</p>
+                </div>
+                <div class="cartao">
+                    <div class="icone">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Inspiração</h3>
+                    <p>Descubra novos estilos e técnicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terceira Seção -->
+    <section class="terceira-secao">
+        <div class="container">
+            <div class="conteudo-secao">
+                <h2>Pronto para mostrar seu talento?</h2>
+                <p>Junte-se à nossa comunidade e comece sua jornada</p>
+                <a asp-controller="Usuario" asp-action="Cadastrar" class="botao botao-comecar">
+                    <i class="fas fa-pencil-alt"></i>
+                    Juntar-se
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

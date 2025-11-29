@@ -6,10 +6,10 @@
 
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
+        <div class="col-12 col-md-10 col-lg-8">
 
             <div class="card shadow-lg border-0 rounded-3">
-                <div class="card-header py-4 text-white text-center rounded-top-3" style="background: linear-gradient(to right, #CC6666, #D98C8C, #E6A8A8);">
+                <div class="card-header py-4 text-white text-center rounded-top-3">
                     <h2 class="mb-1 fw-bold">Publicar Desenho</h2>
                     <p class="mb-0 opacity-75">Compartilhe sua arte com o mundo</p>
                 </div>
@@ -30,7 +30,7 @@
                             <label asp-for="Desenho.Titulo" class="form-label fw-semibold">Título do Desenho</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light">
-                                    <i class="fas fa-pencil-alt icone"></i>
+                                    <i class="fas fa-pencil-alt"></i>
                                 </span>
                                 <input asp-for="Desenho.Titulo" class="form-control" placeholder="Digite um título criativo para seu desenho" />
                             </div>
@@ -103,8 +103,8 @@
 
                         <!-- Botões -->
                         <div class="d-flex gap-3 mt-4">
-                            <button type="submit" class="btn btn-primary flex-fill py-2 fw-bold rounded-2" style="background: linear-gradient(to right, #CC6666, #D98C8C); border: none;">
-                                <i class="fas fa-upload me-2"></i>Publicar Desenho
+                            <button type="submit" class="btn btn-primary flex-fill py-2 fw-bold rounded-2" style="background: black; border: none;">
+                                <i class="fas fa-upload me-2"></i>Enviar
                             </button>
                             <a class="btn btn-outline-secondary py-2 rounded-2 fw-bold" asp-controller="Home" asp-action="Index">
                                 <i class="fas fa-arrow-left me-2"></i>Voltar
