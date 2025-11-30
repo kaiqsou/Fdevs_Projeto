@@ -6048,11 +6048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\DrawHub.csproj",
+      "projectUniqueName": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\Fdevs_Projeto\\DrawHub\\DrawHub.csproj",
       "projectName": "DrawHub",
-      "projectPath": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\DrawHub.csproj",
+      "projectPath": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\Fdevs_Projeto\\DrawHub\\DrawHub.csproj",
       "packagesPath": "C:\\Users\\kaiqs\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\DrawHub\\obj\\",
+      "outputPath": "C:\\Users\\kaiqs\\Desktop\\Fdevs_Projeto\\Fdevs_Projeto\\DrawHub\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
