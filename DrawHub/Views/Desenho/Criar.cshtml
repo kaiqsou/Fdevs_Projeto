@@ -8,13 +8,17 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
 
+            <!-- Cabeçalho -->
             <div class="card shadow-lg border-0 rounded-3">
                 <div class="card-header py-4 text-white text-center rounded-top-3">
                     <h2 class="mb-1 fw-bold">Publicar Desenho</h2>
                     <p class="mb-0 opacity-75">Compartilhe sua arte com o mundo</p>
                 </div>
 
+                <!-- Card -->
                 <div class="card-body p-4 p-md-5">
+
+                    <!-- Mensagens de Erro -->
                     @if (TempData["MsgErro"] != null)
                     {
                         <div class="alert alert-danger alert-dismissible fade show rounded-3" role="alert">
@@ -24,7 +28,9 @@
                         </div>
                     }
 
+                    <!-- Formulário -->
                     <form asp-action="Criar" asp-controller="Desenho" method="post" enctype="multipart/form-data">
+
                         <!-- Título -->
                         <div class="mb-4">
                             <label asp-for="Desenho.Titulo" class="form-label fw-semibold">Título do Desenho</label>
@@ -103,7 +109,7 @@
 
                         <!-- Botões -->
                         <div class="d-flex gap-3 mt-4">
-                            <button type="submit" class="btn btn-primary flex-fill py-2 fw-bold rounded-2" style="background: black; border: none;">
+                            <button type="submit" class="btn-create btn-primary flex-fill py-2 fw-bold rounded-2" style="background: black; border: none;">
                                 <i class="fas fa-upload me-2"></i>Enviar
                             </button>
                             <a class="btn btn-outline-secondary py-2 rounded-2 fw-bold" asp-controller="Home" asp-action="Index">
@@ -117,6 +123,7 @@
     </div>
 </div>
 
+<!-- Script de Preview de Imagens -->
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 

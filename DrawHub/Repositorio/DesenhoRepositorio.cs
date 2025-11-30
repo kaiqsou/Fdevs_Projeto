@@ -14,8 +14,6 @@ namespace DrawHub.Repositorio
 
         public Desenho Adicionar(Desenho desenho)
         {
-            desenho.DataEnvio = DateTime.Now;
-
             _context.Desenhos.Add(desenho);
             _context.SaveChanges();
 
@@ -24,11 +22,9 @@ namespace DrawHub.Repositorio
 
         public Desenho Atualizar(Desenho desenho)
         {
-            Console.WriteLine($"[REPOSITORIO] Atualizando desenho ID: {desenho.Id}");
-
             Desenho desenhoDb = BuscarPorId(desenho.Id);
 
-            if (desenhoDb == null) throw new Exception("[NULL] Houve um erro ao atualizar o desenho!");
+            if (desenhoDb == null) throw new Exception("Desenho não encontrado!");
 
             desenhoDb.Titulo = desenho.Titulo;
             desenhoDb.Descricao = desenho.Descricao;
@@ -52,17 +48,10 @@ namespace DrawHub.Repositorio
             return _context.Desenhos.Include(u => u.Usuario).Include(c => c.Categoria).Where(p => p.Privacidade != true).ToList();
         }
 
-        public List<Desenho> BuscarTodosPorUser(int userId)
+        public List<Desenho> BuscarTodosPorUser(Guid userId)
         {
             return _context.Desenhos.Include(d => d.Categoria).Where(u => u.UsuarioId == userId).ToList();
         }
-
-        /*
-        public List<Desenho> BuscarTodosPorCategoria(int categoriaId)
-        {
-            return _context.Desenhos.Include(c => c.Categorias).Where(d => d.Categorias.Any(c => c.Id == categoriaId)).ToList();
-        }
-        */
 
         public bool Excluir(int id)
         {

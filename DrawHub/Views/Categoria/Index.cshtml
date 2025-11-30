@@ -1,40 +1,115 @@
-﻿@model IEnumerable<DrawHub.Models.Categoria>
+﻿@model IEnumerable<DrawHub.ViewModels.QtdCategoriaViewModel>
 
 @{
     ViewData["Title"] = "Categorias";
 }
 
-<h1>Categorias</h1>
-<a asp-controller="Categoria" asp-action="Criar" class="btn btn-primary">Criar Categoria</a>
+<div class="container py-4">
 
-@if (Model != null && Model.Any())
-{
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Data de Criação</th>
-                <th>Quantidade de Desenhos</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var categoria in Model)
-            {
-                <tr>
-                    <td>@categoria.Nome</td>
-                    <td>@categoria.DataCriacao?.ToString("dd/MM/yyyy")</td>
-                    <td>@categoria.Desenhos?.Count</td>
-                    <td>
-                        <a asp-action="Editar" asp-controller="Categoria" asp-route-id="@categoria.Id" class="btn btn-primary">Editar</a>
-                        <a asp-action="ConfirmarExclusao" asp-controller="Categoria" asp-route-id="@categoria.Id" class="btn btn-danger">Excluir</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <div class="col-md-5 mb-5"><p>Não há categorias registradas ainda.</p></div>
-}
+    <!-- Topo -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0 text-white">Categorias</h1>
+
+        <!-- Criar Categoria (Redirecionar) -->
+        <a asp-controller="Categoria" asp-action="Criar" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>Criar Categoria
+        </a>
+    </div>
+
+    <!-- Se houver categorias, entra aqui -->
+    @if (Model != null && Model.Any())
+    {
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <!-- Tabela -->
+                    <table class="table table-hover mb-0">
+
+                        <!-- Cabeçalho da Tabela -->
+                        <thead class="table-light">
+                            <tr>
+                                <th class="text-center">Nome</th>
+                                <th class="text-center">Data de Criação</th>
+                                <th class="text-center">Quantidade de Desenhos</th>
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Corpo da Tabela -->
+                        <tbody>
+                            @foreach (var categoria in Model)
+                            {
+                                <tr>
+                                    <!-- Nome -->
+                                    <td class="fw-semibold text-center">@categoria.Categoria.Nome</td>
+
+                                    <!-- Data de Criação -->
+                                    <td class="text-center">@categoria.Categoria.DataCriacao?.ToString("dd/MM/yyyy")</td>
+
+                                    <!-- Quantidade de Desenhos -->
+                                    <td class="text-center">
+                                        <span class="badge bg-secondary">@categoria.QtdDesenhos</span>
+                                    </td>
+
+                                    <!-- Ações (Botões) -->
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm">
+
+                                            <!-- Editar (Redirecionar) -->
+                                            <a asp-action="Editar" asp-controller="Categoria" asp-route-id="@categoria.Categoria.Id" class="btn btn-outline-dark">
+                                                <i class="fas fa-edit me-1"></i>Editar
+                                            </a>
+
+                                            <!-- Excluir (Redirecionar )-->
+                                            <a asp-action="ConfirmarExclusao" asp-controller="Categoria" asp-route-id="@categoria.Categoria.Id" class="btn btn-outline-danger">
+                                                <i class="fas fa-trash me-1"></i>Excluir
+                                            </a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <!-- Se não houver categorias, entra aqui -->
+        <div class="text-center py-5">
+
+            <!-- Topo -->
+            <div class="mb-3">
+                <i class="fas fa-folder-open fa-3x text-muted"></i>
+            </div>
+
+            <h4 class="text-muted">Nenhuma categoria encontrada</h4>
+
+            <p class="text-muted mb-4">Comece criando sua primeira categoria</p>
+
+            <!-- Criar Categoria (Redirecionar) -->
+            <a asp-controller="Categoria" asp-action="Criar" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Criar Primeira Categoria
+            </a>
+        </div>
+    }
+</div>
+
+<!-- 
+<style>
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .btn-group-sm > .btn {
+        border-radius: 0.375rem;
+    }
+
+    .card {
+        border: 1px solid #dee2e6;
+    }
+</style>
+-->

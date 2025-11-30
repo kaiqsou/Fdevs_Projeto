@@ -1,4 +1,5 @@
 ﻿using DrawHub.Enums;
+using DrawHub.Filters;
 using DrawHub.Helpers;
 using DrawHub.Models;
 using DrawHub.Repositorio;
@@ -29,6 +30,7 @@ namespace DrawHub.Controllers
             return View(desenhos);
         }
 
+        [UserPage]
         public IActionResult Criar()
         {
             var viewModel = new DesenhoCategoriaViewModel
@@ -40,17 +42,16 @@ namespace DrawHub.Controllers
             return View(viewModel);
         }
 
+        [UserPage]
         public IActionResult Editar(int id)
         {
-            Console.WriteLine($"[GET] TENTANDO ENCONTRAR ID: {id}");
             var desenho = _desenhoRepositorio.BuscarPorId(id);
             var categorias = _categoriaRepositorio.BuscarTodos();
 
             if (desenho == null)
             {
-                Console.WriteLine("NAO ENCONTRADO");
                 TempData["MsgErro"] = "Desenho não encontrado!";
-                return RedirectToAction("MeusDesenhos");
+                return RedirectToAction("MeusDesenhos", "Desenho");
             }
 
             var viewModel = new DesenhoCategoriaViewModel
@@ -89,6 +90,7 @@ namespace DrawHub.Controllers
             return View(desenhosUser);
         }
 
+        [UserPage]
         public IActionResult ConfirmarExclusao(int id)
         {
             Desenho desenho = _desenhoRepositorio.BuscarPorId(id);
@@ -96,32 +98,25 @@ namespace DrawHub.Controllers
             return View(desenho);
         }
 
+        [UserPage]
         public IActionResult Excluir(int id)
         {
             try
             {
                 bool apagado = _desenhoRepositorio.Excluir(id);
 
-                if (apagado)
-                {
-                    TempData["MensagemSucesso"] = "Desenho excluído com sucesso!";
-                }
-                else
-                {
-                    TempData["MensagemErro"] = "Erro na exclusão do desenho!";
-                }
-
-                return RedirectToAction("Index");
+                return RedirectToAction("MeusDesenhos", "Desenho");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $"Erro na exclusão do desenho! Detalhes do erro: {erro.Message}";
-                return RedirectToAction("Index", "MeusDesenhos");
+                Console.WriteLine($"Erro na exclusão do desenho! Detalhes do erro: {erro.Message}");
+                return RedirectToAction("MeusDesenhos", "Desenho");
             }
         }
 
         // Métodos [POST]
         [HttpPost]
+        [UserPage]
         public IActionResult Criar(DesenhoCategoriaViewModel desenhoViewModel)
         {
             desenhoViewModel.Categorias = _categoriaRepositorio.BuscarTodos();
@@ -167,18 +162,15 @@ namespace DrawHub.Controllers
                     desenho.ImagemCaminho = $"/img/{nomeImagem}";
                     desenho.UsuarioId = _sessao.BuscarSessao().Id;
                     desenho.CategoriaId = desenhoViewModel.CategoriaId;
-                    desenho.DataEnvio = DateTime.Now;
                     desenho.Categoria = categoria;
 
                     _desenhoRepositorio.Adicionar(desenho);
 
-                    TempData["MsgSucesso"] = "Desenho adicionado com sucesso!";
-
-                    return RedirectToAction("MeusDesenhos");
+                    return RedirectToAction("MeusDesenhos", "Desenho");
                 }
                 catch (Exception erro)
                 {
-                    TempData["MsgErro"] = $"Erro ao adicionar o desenho! Mais detalhes: {erro.Message}";
+                    Console.WriteLine($"Erro ao adicionar o desenho! Mais detalhes: {erro.Message}");
                 }
             }
 
@@ -186,6 +178,7 @@ namespace DrawHub.Controllers
         }
 
         [HttpPost]
+        [UserPage]
         public IActionResult Editar(DesenhoCategoriaViewModel desenhoViewModel)
         {
             try
@@ -196,14 +189,14 @@ namespace DrawHub.Controllers
 
                 if (desenhoDb == null)
                 {
-                    TempData["MsgErro"] = "Desenho não encontrado!";
-                    return RedirectToAction("MeusDesenhos");
+                    Console.WriteLine("Desenho não encontrado!");
+                    return RedirectToAction("MeusDesenhos", "Desenho");
                 }
 
                 if (desenhoDb.UsuarioId != userLogado.Id)
                 {
-                    TempData["MsgErro"] = "Você não tem permissão para editar este desenho!";
-                    return RedirectToAction("MeusDesenhos");
+                    Console.WriteLine("Você não tem permissão para editar este desenho!");
+                    return RedirectToAction("MeusDesenhos", "Desenho");
                 }
 
                 if (imagem != null && imagem.Length > 0)
@@ -214,7 +207,7 @@ namespace DrawHub.Controllers
                     if (!extensoesValidas.Contains(extensao))
                     {
                         TempData["MsgErro"] = "Formato de arquivo inválido!";
-                        return RedirectToAction("Editar");
+                        return RedirectToAction("Editar", "Desenho");
                     }
 
                     var nomeImagem = $"{Guid.NewGuid()}{extensao}";
@@ -243,21 +236,14 @@ namespace DrawHub.Controllers
                 desenhoDb.CategoriaId = desenhoViewModel.CategoriaId;
                 desenhoDb.DataAtualizacao = DateTime.Now;
 
-                Console.WriteLine($"[DEBUG] Dados a serem atualizados:");
-                Console.WriteLine($"[DEBUG] Titulo: {desenhoDb.Titulo}");
-                Console.WriteLine($"[DEBUG] Descricao: {desenhoDb.Descricao}");
-                Console.WriteLine($"[DEBUG] Privacidade: {desenhoDb.Privacidade}");
-                Console.WriteLine($"[DEBUG] CategoriaId: {desenhoDb.CategoriaId}");
-
                 _desenhoRepositorio.Atualizar(desenhoDb);
 
-                TempData["MsgSucesso"] = "Desenho atualizado com sucesso!";
-                return RedirectToAction("MeusDesenhos");
+                return RedirectToAction("MeusDesenhos", "Desenho");
             }
             catch (Exception error)
             {
-                TempData["MsgErro"] = $"Erro ao atualizar o desenho! Mais detalhes: {error.Message}";
-                return RedirectToAction("MeusDesenhos");
+                Console.WriteLine($"Erro ao atualizar o desenho! Mais detalhes: {error.Message}");
+                return RedirectToAction("MeusDesenhos", "Desenho");
             }
         }
     }

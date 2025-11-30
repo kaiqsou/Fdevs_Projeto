@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DrawHub.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20251129002031_Criar-Banco")]
+    [Migration("20251130023122_Criar-Banco")]
     partial class CriarBanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,6 @@ namespace DrawHub.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DataCriacao")
                         .HasColumnType("datetime2");
@@ -74,8 +71,8 @@ namespace DrawHub.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -88,13 +85,9 @@ namespace DrawHub.Migrations
 
             modelBuilder.Entity("DrawHub.Models.Usuario", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
@@ -108,9 +101,6 @@ namespace DrawHub.Migrations
                     b.Property<string>("Senha")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Telefone")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("Tipo")
                         .HasColumnType("int");
 
@@ -122,7 +112,7 @@ namespace DrawHub.Migrations
             modelBuilder.Entity("DrawHub.Models.Desenho", b =>
                 {
                     b.HasOne("DrawHub.Models.Categoria", "Categoria")
-                        .WithMany("Desenhos")
+                        .WithMany()
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -136,11 +126,6 @@ namespace DrawHub.Migrations
                     b.Navigation("Categoria");
 
                     b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("DrawHub.Models.Categoria", b =>
-                {
-                    b.Navigation("Desenhos");
                 });
 
             modelBuilder.Entity("DrawHub.Models.Usuario", b =>

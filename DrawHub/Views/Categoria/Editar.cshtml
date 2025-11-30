@@ -4,26 +4,60 @@
     ViewData["Title"] = "Editar Categoria";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Editar Categoria</h2>
+<div class="py-5">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
 
-    <form asp-action="Editar" asp-controller="Categoria" method="post" class="border p-4 rounded bg-light shadow-sm">
+                <!-- Topo -->
+                <div class="text-center mb-4">
+                    <h1 class="h3 fw-bold text-white mb-3">Editar Categoria</h1>
+                    <p class="text-white">Atualize os dados da categoria</p>
+                </div>
 
-        <input type="hidden" asp-for="Id" />
+                <!-- Mensagens de Erro -->
+                @if (TempData["MsgErro"] != null)
+                {
+                    <div class="alert alert-danger alert-custom mb-4 d-flex align-items-center">
+                        <i class="fas fa-exclamation-triangle me-3 fs-5"></i>
+                        <div class="fw-medium">@TempData["MsgErro"]</div>
+                    </div>
+                }
 
-        <!-- Título -->
-        <div class="mb-3">
-            <label asp-for="Nome" class="form-label"></label>
-            <input asp-for="Nome" class="form-control" placeholder="@Model.Nome" />
-            @Html.ValidationMessageFor(c => c.Nome)
+                <!-- Card -->
+                <div class="card border-verde card-sombra bg-white">
+                    <div class="card-body p-4">
+
+                        <!-- Formulário -->
+                        <form asp-action="Editar" asp-controller="Categoria" method="post">
+                            <input type="hidden" asp-for="Id" />
+
+                            <!-- Nome da Categoria -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold text-verde-escuro mb-3">
+                                    <i class="fas fa-tag me-2"></i>Nome da Categoria
+                                </label>
+                                <input asp-for="Nome" class="form-control-categoria" placeholder="Ex: Realista, Retrato, Abstrato..." />
+                                <span class="text-danger small mt-2 d-block">@Html.ValidationMessageFor(n => n.Nome)</span>
+                            </div>
+
+                            <!-- Botões -->
+                            <div class="d-flex gap-3 justify-content-end pt-2">
+
+                                <!-- Voltar (Redirecionar) -->
+                                <a class="btn btn-outline-verde" asp-controller="Categoria" asp-action="Index">
+                                    <i class="fas fa-arrow-left me-2"></i>Voltar
+                                </a>
+
+                                <!-- Salvar (Submit) -->
+                                <button type="submit" class="btn botao-categoria">
+                                    <i class="fas fa-save me-2"></i>Salvar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <a class="btn btn-secondary" asp-controller="Categoria" asp-action="Index" role="button">Voltar</a>
-    </form>
-
+    </div>
 </div>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

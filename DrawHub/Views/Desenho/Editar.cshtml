@@ -4,83 +4,141 @@
     ViewData["Title"] = "Editar Desenho";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Editar Desenho</h2>
+<div class="container-editar-desenho">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
 
-    <form asp-action="Editar" asp-controller="Desenho" method="post" class="border p-4 rounded bg-light shadow-sm" enctype="multipart/form-data">
+                <div class="card card-editar-desenho">
+                    <div class="cabecalho-card-editar text-white text-center">
+                        <h2 class="titulo-cabecalho-editar">Editar Desenho</h2>
+                        <p class="subtitulo-cabecalho-editar">Atualize os detalhes da sua arte</p>
+                    </div>
 
-        <input type="hidden" asp-for="Desenho.Id" />
+                    <!-- Card -->
+                    <div class="corpo-card-editar">
 
-        <!-- Título -->
-        <div class="mb-3">
-            <label asp-for="Desenho.Titulo" class="form-label"></label>
-            <input asp-for="Desenho.Titulo" class="form-control" placeholder="@Model.Desenho.Titulo" />
-            @Html.ValidationMessageFor(x => x.Desenho.Titulo)
-        </div>
+                        <!-- Mensagens de Erro -->
+                        @if (TempData["MsgErro"] != null)
+                        {
+                            <div class="alert alert-danger alerta-erro-editar alert-dismissible fade show" role="alert">
+                                <i class="fas fa-exclamation-circle me-2"></i>
+                                @TempData["MsgErro"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
 
-        <!-- Descrição -->
-        <div class="mb-3">
-            <label asp-for="Desenho.Descricao" class="form-label"></label>
-            <textarea type="textarea" asp-for="Desenho.Descricao" class="form-control" placeholder="@Model.Desenho.Descricao" rows="3"></textarea>
-            @Html.ValidationMessageFor(x => x.Desenho.Descricao)
-        </div>
+                        <!-- Formulário -->
+                        <form asp-action="Editar" asp-controller="Desenho" method="post" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="Desenho.Id" />
 
-        <!-- Categoria -->
-        <div class="mb-3">
-            <label asp-for="CategoriaId" class="form-label">Categoria</label>
-            <select asp-for="CategoriaId" class="form-control">
-                <option value="">Selecione uma categoria</option>
-                @foreach (var categoria in Model.Categorias)
-                {
-                    <option value="@categoria.Id">@categoria.Nome</option>
-                }
-            </select>
-            <span asp-validation-for="CategoriaId" class="text-danger"></span>
-        </div>
+                            <!-- Título -->
+                            <div class="grupo-form-editar">
+                                <label asp-for="Desenho.Titulo" class="rotulo-editar">Título do Desenho</label>
+                                <div class="grupo-input-editar">
+                                    <span class="icone-input-editar">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </span>
 
-        <!-- Nova Imagem -->
-        <div class="mb-3">
-            <label asp-for="Desenho.ArquivoImagem" class="form-label">Alterar Imagem (Opcional)</label>
-            <input asp-for="Desenho.ArquivoImagem" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
-        </div>
+                                    <input asp-for="Desenho.Titulo" class="campo-input-editar" placeholder="Digite um título criativo para seu desenho" />
+                                </div>
+                                <span class="text-danger texto-validacao-editar">@Html.ValidationMessageFor(t => t.Desenho.Titulo)</span>
+                            </div>
 
-        <!-- Imagem atual -->
-            <div class="mb-3 text-center">
-                <img src="@Model.Desenho.ImagemCaminho" alt="@Model.Desenho.Titulo" class="img-fluid" />
+                            <!-- Descrição -->
+                            <div class="grupo-form-editar">
+                                <label asp-for="Desenho.Descricao" class="rotulo-editar">Descrição</label>
+                                <div class="grupo-input-editar">
+                                    <span class="icone-input-editar align-items-start">
+                                        <i class="fas fa-align-left text-muted mt-1"></i>
+                                    </span>
+
+                                    <textarea asp-for="Desenho.Descricao" class="campo-input-editar textarea-editar" placeholder="Conte um pouco sobre a sua arte, técnicas utilizadas, inspirações, etc..." rows="3"></textarea>
+                                </div>
+                                <span class="text-danger texto-validacao-editar">@Html.ValidationMessageFor(x => x.Desenho.Descricao)</span>
+                            </div>
+
+                            <!-- Categoria -->
+                            <div class="grupo-form-editar">
+                                <label asp-for="CategoriaId">Categoria</label>
+                                <div class="grupo-input-editar">
+                                    <span class="icone-input-editar">
+                                        <i class="fas fa-tag text-muted"></i>
+                                    </span>
+                                    <select asp-for="CategoriaId" class="campo-input-editar">
+                                        <option value="">Selecione uma categoria</option>
+                                        @foreach (var categoria in Model.Categorias)
+                                        {
+                                            <option value="@categoria.Id">@categoria.Nome</option>
+                                        }
+                                    </select>
+                                </div>
+                                <span class="text-danger texto-validacao-editar">@Html.ValidationMessageFor(x => x.CategoriaId)</span>
+                            </div>
+
+                            <!-- Nova Imagem -->
+                            <div class="grupo-form-editar">
+                                <label asp-for="Desenho.ArquivoImagem" class="rotulo-editar">Alterar Imagem (Opcional)</label>
+                                <div>
+                                    <div class="grupo-input-editar">
+                                        <span class="icone-input-editar">
+                                            <i class="fas fa-image text-muted"></i>
+                                        </span>
+                                        <input asp-for="Desenho.ArquivoImagem" type="file" class="campo-input-editar" accept="image/*" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Imagem atual -->
+                            <div class="grupo-form-editar">
+                                <label class="rotulo-editar">Imagem Atual</label>
+                                <div class="container-preview-editar">
+                                    <img src="@Model.Desenho.ImagemCaminho" alt="@Model.Desenho.Titulo" class="imagem-atual-editar img-fluid" />
+                                </div>
+                            </div>
+
+                            <!-- Privacidade -->
+                            <div class="mb-4">
+                                <div class="form-check form-switch">
+                                    <input asp-for="Desenho.Privacidade" id="privacidade" type="checkbox" class="form-check-input" role="switch" />
+                                    <label asp-for="Desenho.Privacidade" class="form-check-label fw-semibold">
+                                        <i class="fas fa-lock me-2"></i>Tornar desenho privado
+                                    </label>
+                                </div>
+                                <small class="text-muted">Desenhos privados só são visíveis para você</small>
+                            </div>
+
+                            <!-- Botões -->
+                            <div class="grupo-botoes-editar">
+                                <button type="submit" class="botao-principal-editar btn text-white">
+                                    <i class="fas fa-save me-2"></i>Salvar Alterações
+                                </button>
+                                <a class="botao-secundario-editar" asp-controller="Home" asp-action="Index">
+                                    <i class="fas fa-arrow-left me-2"></i>Voltar
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-        <!-- Privacidade -->
-        <div class="form-check mb-3">
-            <label asp-for="Desenho.Privacidade" class="form-check-label">Privado</label>
-            <input asp-for="Desenho.Privacidade" id="privacidade" type="checkbox" class="form-check-input" />
         </div>
-
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
-    </form>
-
+    </div>
 </div>
 
+<!-- Script para manter a imagem na edição -->
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
     <script>
-        const fileInput = document.querySelector('input[type="file"]');
-        if (fileInput) {
-            fileInput.addEventListener('change', function (e) {
-                const file = e.target.files[0];
-                if (!file) return;
+        document.querySelector('input[type="file"]')?.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
 
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    const img = document.getElementById('preview-imagem');
-                    if (img) {
-                        img.src = event.target.result;
-                        img.classList.remove('d-none');
-                    }
-                };
-                reader.readAsDataURL(file);
-            });
-        }
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                console.log('Nova imagem selecionada:', file.name);
+            };
+            reader.readAsDataURL(file);
+        });
     </script>
 }

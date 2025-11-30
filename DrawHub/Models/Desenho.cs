@@ -27,26 +27,16 @@ namespace DrawHub.Models
 
         [Display(Name = "Privacidade")]
         public bool Privacidade { get; set; } = false;
-
-        public DateTime? DataEnvio { get; set; }
-
+        public DateTime? DataEnvio { get; set; } = DateTime.Now;
         public DateTime? DataAtualizacao { get; set; }
 
         [Required]
         public int CategoriaId { get; set; }
-
         public Categoria? Categoria { get; set; }
-
-        public int UsuarioId { get; set; }
-
+        public Guid UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }
 
         // Métodos
-        public void MudarImagem(string imagem)
-        {
-            ImagemCaminho = imagem;
-        }
-
         public void PrivarDesenho()
         {
             Privacidade = true;

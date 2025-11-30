@@ -19,10 +19,11 @@
     margin-left: auto !important;
 }
 
-.fundo-header {
-    background: firebrick !important;
+.fundo-header 
+{
+    background: #2f847c !important;
     padding: 12px 0;
-    border-bottom: 1px solid firebrick;
+    border-bottom: 2px solid #00563f;
     position: relative;
 }
 

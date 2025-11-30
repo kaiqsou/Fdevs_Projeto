@@ -40,7 +40,7 @@ body::before
     z-index: -1;
 }
 
-/* Estilização da Logo */
+/* Estilizaï¿½ï¿½o da Logo */
 .logo 
 {
     text-decoration: none !important;
@@ -62,7 +62,7 @@ body::before
     transform: scale(1.1);
 }
 
-/* Estilização da validação de erro */
+/* Estilizaï¿½ï¿½o da validaï¿½ï¿½o de erro */
 .field-validation-error 
 { 
     color: #e01d1d; 

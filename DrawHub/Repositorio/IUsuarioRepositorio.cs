@@ -14,12 +14,12 @@ namespace DrawHub.Repositorio
         List<Usuario> BuscarTodos();
 
         // Busca um único usuário do banco no banco de dados
-        Usuario BuscarPorId(int id);
+        Usuario BuscarPorId(Guid id);
 
         // Busca um usuário pelo e-mail de Login
         Usuario BuscarPorEmail(string email);
 
         // Exclui um usuário
-        bool Excluir(int id);
+        bool Excluir(Guid id);
     }
 }

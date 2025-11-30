@@ -1,6 +1,16 @@
 ﻿.card 
 {
-    border: none;
+    border: none !important;
+}
+
+.link-cadastro 
+{
+    color: #2f847c;
+}
+
+.link-cadastro:hover 
+{
+    color: darkslategrey;
 }
 
 .form-control 
@@ -11,8 +21,7 @@
 
 .form-control:focus 
 {
-    border-color: #CC6666;
-    box-shadow: 0 0 0 0.2rem rgba(204, 102, 102, 0.25);
+    border-color: #4caf50;
 }
 
 .input-group-text 
@@ -30,7 +39,6 @@
 
 .btn-primary 
 {
-    background: linear-gradient(to right, #CC6666, #D98C8C);
     border: none;
     transition: all 0.3s ease;
 }
@@ -38,7 +46,6 @@
 .btn-primary:hover 
 {
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(204, 102, 102, 0.3);
 }
 
 .alert-danger 

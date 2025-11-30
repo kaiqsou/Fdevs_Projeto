@@ -32,9 +32,7 @@ namespace DrawHub.Repositorio
 
             usuarioDb.Nome = usuario.Nome;
             usuarioDb.Email = usuario.Email;
-            usuarioDb.Telefone = usuario.Telefone;
             usuarioDb.Tipo = usuario.Tipo;
-            usuarioDb.DataAtualizacao = DateTime.Now;
 
             _context.Usuarios.Update(usuarioDb);
             _context.SaveChanges();
@@ -44,20 +42,20 @@ namespace DrawHub.Repositorio
 
         public Usuario BuscarPorEmail(string email)
         {
-            return _context.Usuarios.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper());
+            return _context.Usuarios.FirstOrDefault(u => u.Email.ToUpper() == email.ToUpper());
         }
 
-        public Usuario BuscarPorId(int id)
+        public Usuario BuscarPorId(Guid id)
         {
-            return _context.Usuarios.FirstOrDefault(x => x.Id == id);
+            return _context.Usuarios.FirstOrDefault(u => u.Id == id);
         }
 
         public List<Usuario> BuscarTodos()
         {
-            return _context.Usuarios.Include(x => x.Desenhos).ToList();
+            return _context.Usuarios.Include(u => u.Desenhos).ToList();
         }
 
-        public bool Excluir(int id)
+        public bool Excluir(Guid id)
         {
             Usuario usuario = BuscarPorId(id);
 

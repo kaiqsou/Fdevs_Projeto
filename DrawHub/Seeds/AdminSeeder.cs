@@ -1,5 +1,6 @@
 ﻿using DrawHub.Data;
 using DrawHub.Enums;
+using DrawHub.Helpers;
 using DrawHub.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Data;
@@ -18,7 +19,7 @@ namespace DrawHub.Seeds
                 {
                     Nome = "Administrador",
                     Email = adminEmail,
-                    Senha = "123456",
+                    Senha = "Admin123@".GerarHash(),
                     Tipo = RoleEnum.Administrador
                 };
 

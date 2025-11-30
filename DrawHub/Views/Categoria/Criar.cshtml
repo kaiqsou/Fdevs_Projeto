@@ -4,25 +4,57 @@
     ViewData["Title"] = "Criar Categoria";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Criar Categoria</h2>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
 
-    @if (TempData["MsgErro"] != null)
-    {
-        <div class="alert alert-danger">@TempData["MsgErro"]</div>
-    }
+            <!-- Topo -->
+            <div class="text-center mb-4">
+                <h1 class="h3 text-white">Criar Categoria</h1>
+                <p class="text-white">Adicione uma nova categoria para organizar seus desenhos</p>
+            </div>
 
-    <form asp-action="Criar" asp-controller="Categoria" method="post" class="border p-4 rounded bg-light shadow-sm">
+            <!-- Mensagens de Erro -->
+            @if (TempData["MsgErro"] != null)
+            {
+                <div class="alert alert-danger mb-4">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    @TempData["MsgErro"]
+                </div>
+            }
 
-        <!-- Nome -->
-        <div class="mb-3">
-            <label asp-for="Nome" class="form-label"></label>
-            <input asp-for="Nome" name="Nome" class="form-control" placeholder="Digite um nome para a categoria" />
-            @Html.ValidationMessageFor(x => x.Nome)
+            <!-- Card -->
+            <div class="card border-verde card-sombra">
+                <div class="card-body p-4">
+
+                    <!-- Formulário -->
+                    <form asp-action="Criar" asp-controller="Categoria" method="post">
+
+                        <!-- Nome da Categoria -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-verde-escuro">Nome da Categoria</label>
+                            <input asp-for="Nome" name="Nome" class="form-control campo-verde" placeholder="Ex: Realista, Retrato, Abstrato..." />
+                            <span class="text-danger small">@Html.ValidationMessageFor(n => n.Nome)</span>
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="d-flex gap-2 justify-content-end">
+
+                            <!-- Voltar (Redirecionar) -->
+                            <a class="botao btn-outline-verde" asp-controller="Categoria" asp-action="Index">
+                                <i class="fas fa-arrow-left me-2"></i>Voltar
+                            </a>
+
+                            <!-- Criar (Submit) -->
+                            <button type="submit" class="botao botao-categoria">
+                                <i class="fas fa-plus me-2"></i>Criar
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
         </div>
-
-        <button type="submit" class="btn btn-primary">Criar</button>
-        <a class="btn btn-secondary" asp-controller="Categoria" asp-action="Index" role="button">Voltar</a>
-    </form>
-
+    </div>
 </div>

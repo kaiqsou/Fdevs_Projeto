@@ -1,0 +1,69 @@
+﻿.restricao-container 
+{
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.restricao-card 
+{
+    background: #00563f;
+    color: white;
+    text-align: center;
+    padding: 50px 40px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 0.4s ease;
+}
+
+.restricao-icone 
+{
+    font-size: 3rem;
+    background: white;
+    color: #00563f;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restricao-titulo 
+{
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.restricao-texto 
+{
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.restricao-botao 
+{
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    background: white;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.restricao-botao:hover 
+{
+    background: black;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}

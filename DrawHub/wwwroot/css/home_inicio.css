@@ -13,7 +13,7 @@
 
 .primeira-secao 
 {
-    background-color: firebrick;
+    background-color: #00563f;
     min-height: 70vh;
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@
 .terceira-secao 
 {
     padding: 80px 0;
-    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);
+    background-color: #00563f;
     color: white;
     text-align: center;
     margin-top: 25px !important;
@@ -112,7 +112,7 @@
 
 .botao-explorar 
 {
-    background: black;
+    background-color: seagreen;
     backdrop-filter: blur(10px);
     color: white;
     border: white;
@@ -121,7 +121,7 @@
 .botao-explorar:hover 
 {
     color: white;
-    background-color: mediumpurple;
+    background-color: #2f847c;
     transform: translateY(-2px);
 }
 
@@ -134,7 +134,7 @@
 .botao-cadastro:hover 
 {
     color: white;
-    background-color: cornflowerblue;
+    background-color: black;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
@@ -150,7 +150,7 @@
 .botao-comecar:hover 
 {
     color: white;
-    background-color: cornflowerblue;
+    background-color: black;
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
  }
@@ -205,7 +205,7 @@
 {
     width: 70px;
     height: 70px;
-    background: firebrick;
+    background: #00563f;
     border-radius: 50%;
     display: flex;
     align-items: center;

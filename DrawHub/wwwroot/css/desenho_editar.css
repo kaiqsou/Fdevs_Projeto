@@ -1,0 +1,214 @@
+﻿.container-editar-desenho 
+{
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.card-editar-desenho 
+{
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+    border-radius: 1rem !important;
+}
+
+.cabecalho-card-editar 
+{
+    background: black !important;
+    border: none;
+    padding: 2.5rem 1rem !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+}
+
+.titulo-cabecalho-editar 
+{
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.subtitulo-cabecalho-editar 
+{
+    font-size: 1.3rem;
+    opacity: 0.75;
+}
+
+.corpo-card-editar 
+{
+    padding: 3rem 2rem !important;
+}
+
+.grupo-form-editar 
+{
+    margin-bottom: 2rem;
+}
+
+.rotulo-editar 
+{
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.grupo-input-editar 
+{
+    display: flex;
+    width: 100%;
+}
+
+.icone-input-editar 
+{
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6;
+    border-right: none;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.campo-input-editar 
+{
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    width: 100%;
+    flex: 1;
+}
+
+.campo-input-editar:focus 
+{
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.1);
+}
+
+.textarea-editar 
+{
+    resize: vertical;
+    min-height: 100px;
+}
+
+.select-editar 
+{
+    border: 1px solid #dee2e6;
+    border-left: none;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+}
+
+.upload-imagem-editar:hover 
+{
+    border-color: #4caf50;
+    background: #f8fff8;
+}
+
+.preview-imagem-editar 
+{
+    max-height: 300px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container-preview-editar 
+{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.placeholder-imagem-editar 
+{
+    color: #6c757d;
+}
+
+.icone-placeholder-editar 
+{
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.texto-ajuda-editar 
+{
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.grupo-botoes-editar 
+{
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.botao-principal-editar 
+{
+    background: black !important;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    flex: 1;
+    border-radius: 0.75rem !important;
+}
+
+.botao-principal-editar:hover 
+{
+    background: #333 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.botao-secundario-editar 
+{
+    border: 2px solid #6c757d;
+    color: #6c757d;
+    background: transparent;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 0.75rem !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-secundario-editar:hover 
+{
+    background: #6c757d;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+}
+
+.alerta-erro-editar 
+{
+    background: linear-gradient(135deg, #f8d7da, #f1aeb5);
+    color: #721c24;
+    border: none;
+    border-left: 4px solid #dc3545;
+    border-radius: 0.75rem !important;
+}
+
+.texto-validacao-editar 
+{
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.imagem-atual-editar 
+{
+    max-height: 200px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e8f5e8;
+}

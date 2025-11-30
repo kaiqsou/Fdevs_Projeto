@@ -27,7 +27,7 @@ namespace DrawHub.Controllers
         {
             _sessao.EncerrarSessao();
 
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Home");
         }
 
         // Métodos [POST]
@@ -42,7 +42,6 @@ namespace DrawHub.Controllers
                     if (usuario != null && usuario.SenhaValida(login.Senha))
                     {
                         _sessao.CriarSessao(usuario);
-                        ViewData["MsgSucesso"] = "Logado com sucesso!";
 
                         return RedirectToAction("Index", "Home");
                     }
@@ -53,9 +52,8 @@ namespace DrawHub.Controllers
             }
             catch (Exception erro)
             {
-                ViewData["MsgErro"] = $"Erro ao entrar! Detalhe do erro: {erro.Message}";
-
-                return RedirectToAction("Index");
+                Console.WriteLine($"Erro ao entrar! Detalhe do erro: {erro.Message}");
+                return RedirectToAction("Index", "Login");
             }
         }
     }

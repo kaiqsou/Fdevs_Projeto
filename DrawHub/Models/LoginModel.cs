@@ -11,7 +11,7 @@ namespace DrawHub.Models
 
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "Senha é obrigatória!")]
-//      [MinLength(8, ErrorMessage = "Mínimo de 8 caracteres!")]
+        [MinLength(8, ErrorMessage = "Mínimo de 8 caracteres!")]
         [MaxLength(50, ErrorMessage = "Máximo de 50 caracteres!")]
         public string Senha { get; set; }
     }

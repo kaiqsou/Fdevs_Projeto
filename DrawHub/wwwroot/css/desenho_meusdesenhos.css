@@ -7,6 +7,46 @@
     border-radius: 15px;
 }
 
+.btn-meus-desenhos
+{
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 115px;
+    text-decoration: none;
+}
+
+.meus-desenhos-btn-editar 
+{
+    background-color: #222 !important;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.meus-desenhos-btn-editar:hover 
+{
+    background: black !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(204, 102, 102, 0.3);
+}
+
+.meus-desenhos-btn-excluir 
+{
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.meus-desenhos-btn-excluir:hover 
+{
+    background: linear-gradient(135deg, #c82333, #a71e2a);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
 .titulo-meus-desenhos 
 {
     color: #CC6666;
@@ -81,50 +121,20 @@
 
 .meus-desenhos-btn-detalhes 
 {
-    border: 2px solid #CC6666;
-    color: #CC6666;
+    border: 2px solid #2f847c;
+    color: #2f847c;
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    font-size: 0.9rem
 }
 
 .meus-desenhos-btn-detalhes:hover 
 {
-    background: #CC6666;
+    background-color: #2f847c;
+    border: 2px solid #2f847c;
     color: white;
     transform: translateY(-1px);
-}
-
-.meus-desenhos-btn-editar 
-{
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.meus-desenhos-btn-editar:hover 
-{
-    background: linear-gradient(135deg, #B25959, #C57A7A);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(204, 102, 102, 0.3);
-}
-
-.meus-desenhos-btn-excluir 
-{
-    background: linear-gradient(135deg, #dc3545, #c82333);
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.meus-desenhos-btn-excluir:hover 
-{
-    background: linear-gradient(135deg, #c82333, #a71e2a);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
 
 .meus-desenhos-btn-criar 
@@ -159,12 +169,12 @@
     padding: 40px 20px;
 }
 
-.badge.bg-success 
+.privacidade.bg-success 
 {
-    background: linear-gradient(135deg, #198754, #157347) !important;
+    background-color: skyblue !important;
 }
 
-.badge.bg-warning 
+.privacidade.bg-warning 
 {
-    background: linear-gradient(135deg, #ffc107, #e0a800) !important;
+    background-color: goldenrod !important;
 }

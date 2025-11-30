@@ -31,16 +31,16 @@
                     </div>
 
                     <!-- Título -->
-                    <h1 class="display-6 fw-bold text-dark mb-3" style="color: #CC6666; line-height: 1.2;">@Model.Desenho.Titulo</h1>
+                    <h1 class="display-6 fw-bold text-dark mb-3" >@Model.Desenho.Titulo</h1>
 
                     <!-- Artista -->
-                    <div class="d-flex align-items-center mb-4 p-3 rounded-3" style="background: linear-gradient(135deg, #f8d7da, #f1aeb5);">
-                        <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #CC6666, #D98C8C);">
+                    <div class="d-flex align-items-center mb-4 p-3 rounded-3 artista-background">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background: black;">
                             <i class="fas fa-user text-white fs-5"></i>
                         </div>
                         <div>
                             <p class="mb-1 fw-bold fs-5 text-dark">@Model.Desenho.Usuario.Nome</p>
-                            <small class="text-muted">Artista</small>
+                            <small class="text-white">Artista</small>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                             <div class="col-12">
                                 <div class="p-3 border rounded-3 mb-2" style="border-color: #e9ecef !important;">
                                     <div class="d-flex align-items-center">
-                                        <i class="fas fa-calendar me-3" style="color: #CC6666; font-size: 1.2rem;"></i>
+                                        <i class="fas fa-calendar me-3" style="color: #2f847c; font-size: 1.2rem;"></i>
                                         <div>
                                             <small class="text-muted d-block">Publicado em</small>
                                             <strong class="text-dark">@Model.Desenho.DataEnvio?.ToString("dd/MM/yyyy")</strong>
@@ -66,10 +66,10 @@
                                 <div class="col-12">
                                     <div class="p-3 border rounded-3 mb-2" style="border-color: #e9ecef !important;">
                                         <div class="d-flex align-items-center">
-                                            <i class="fas fa-tag me-3" style="color: #CC6666; font-size: 1.2rem;"></i>
+                                            <i class="fas fa-tag me-3" style="color: #2f847c; font-size: 1.2rem;"></i>
                                             <div>
                                                 <small class="text-muted d-block">Categoria</small>
-                                                <span class="badge" style="background: linear-gradient(135deg, #CC6666, #D98C8C);">@Model.Categoria.Nome</span>
+                                                <span class="badge" style="background: #2f847c;">@Model.Categoria.Nome</span>
                                             </div>
                                         </div>
                                     </div>
@@ -96,8 +96,8 @@
 
                     <!-- Descrição -->
                     <div class="mb-4 flex-grow-1">
-                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2" style="border-color: #CC6666 !important;">
-                            <i class="fas fa-align-left me-2" style="color: #CC6666;"></i>
+                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2" style="border-color: #2f847c !important;">
+                            <i class="fas fa-align-left me-2" style="color: #2f847c;"></i>
                             Descrição
                         </h5>
                         <div class="p-3 rounded-3" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); min-height: 120px;">

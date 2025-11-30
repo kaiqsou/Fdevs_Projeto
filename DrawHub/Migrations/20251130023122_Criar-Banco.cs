@@ -14,8 +14,7 @@ namespace DrawHub.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,15 +25,12 @@ namespace DrawHub.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Senha = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tipo = table.Column<int>(type: "int", nullable: true),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,7 +50,7 @@ namespace DrawHub.Migrations
                     DataEnvio = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CategoriaId = table.Column<int>(type: "int", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false)
+                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

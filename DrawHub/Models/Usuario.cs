@@ -1,4 +1,5 @@
 ﻿using DrawHub.Enums;
+using DrawHub.Helpers;
 using System.ComponentModel.DataAnnotations;
 
 namespace DrawHub.Models
@@ -6,25 +7,23 @@ namespace DrawHub.Models
     public class Usuario
     {
         // Propriedades
-        public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string? Nome { get; set; }
         public string? Email { get; set; }
-        public string? Telefone { get; set; } = null;
         public string? Senha { get; set; }
         public RoleEnum? Tipo { get; set; } = RoleEnum.Padrão;
         public DateTime DataCadastro { get; set; } = DateTime.Now;
-        public DateTime? DataAtualizacao { get; set; }
         public virtual List<Desenho>? Desenhos { get; set; }
 
         // Métodos
         public bool SenhaValida(string senha)
         {
-            return Senha == senha;
+            return Senha == senha.GerarHash();
         }
 
-        public void AtualizarSenha(string novaSenha)
+        public void SetSenhaHash()
         {
-            Senha = novaSenha;
+            Senha = Senha.GerarHash();
         }
     }
 }

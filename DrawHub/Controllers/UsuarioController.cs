@@ -1,4 +1,5 @@
 ﻿using DrawHub.Filters;
+using DrawHub.Helpers;
 using DrawHub.Models;
 using DrawHub.Repositorio;
 using Microsoft.AspNetCore.Mvc;
@@ -8,11 +9,11 @@ namespace DrawHub.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
-        private readonly IDesenhoRepositorio _desenhoRepositorio;
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, IDesenhoRepositorio desenhoRepositorio)
+        private readonly ISessao _sessao;
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao)
         {
             _usuarioRepositorio = usuarioRepositorio;
-            _desenhoRepositorio = desenhoRepositorio;
+            _sessao = sessao;
         }
 
         // Métodos [GET]
@@ -25,29 +26,16 @@ namespace DrawHub.Controllers
 
         public IActionResult Cadastrar()
         {
+            if (_sessao.BuscarSessao() != null) return RedirectToAction("MeusDesenhos", "Desenho");
+
             return View();
         }
 
-        public IActionResult Editar(int id)
+        public IActionResult Editar(Guid id)
         {
             Usuario usuario = _usuarioRepositorio.BuscarPorId(id);
 
             return View(usuario);
-        }
-
-        public IActionResult ConfirmarExclusao(int id)
-        {
-            Usuario usuario = _usuarioRepositorio.BuscarPorId(id);
-
-            return View(usuario);
-        }
-
-        public IActionResult ExibirDesenhos(int id)
-        {
-            List<Desenho> desenhos = _desenhoRepositorio.BuscarTodos();
-
-            // Adicionar PartialViews depois aqui
-            return View(desenhos);
         }
 
         // Métodos [POST]
@@ -58,33 +46,28 @@ namespace DrawHub.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var user = _usuarioRepositorio.BuscarPorEmail(usuario.Email);
+
+                    if (user != null)
+                    {
+                        TempData["MsgErro"] = "Usuário já cadastrado!";
+                        return View();
+                    }
+
+                    usuario.SetSenhaHash();
                     _usuarioRepositorio.Adicionar(usuario);
 
                     TempData["MsgSucesso"] = "Usuário cadastrado com sucesso!";
-
-                    return RedirectToAction("Cadastrar");
+                    return View();
                 }
 
                 return View(usuario);
             }
             catch (Exception erro)
             {
-                TempData["MsgErro"] = $"Não foi possível cadastrar o usuário! Detalhe do erro: {erro.Message}";
-
-                return RedirectToAction("Cadastrar");
+                Console.WriteLine($"Não foi possível cadastrar o usuário! Detalhe do erro: {erro.Message}");
+                return View();
             }
-        }
-
-        [HttpPost]
-        public IActionResult Editar(UsuarioBasico usuario)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Excluir(int id)
-        {
-            return View();
         }
     }
 }

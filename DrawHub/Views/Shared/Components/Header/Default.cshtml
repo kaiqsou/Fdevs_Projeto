@@ -7,7 +7,7 @@
 </a>
 
 <div class="collapse navbar-collapse" id="navbarContent">
-    <!-- Links centralizados -->
+    <!-- Primeira Lista (Links centralizados) -->
     <ul class="navbar-nav mx-auto navbar-estilo">
         <li class="nav-item">
             <a class="nav-link link-header" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
@@ -23,16 +23,18 @@
 
         @if (Model != null && Model.Tipo == RoleEnum.Administrador)
         {
+            <!-- Usuário é ADMIN -->
             <li class="nav-item">
                 <a class="nav-link link-header" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
             </li>
         }
     </ul>
 
-    <!-- Links à direita (Cadastrar/Entrar ou Sair) -->
+    <!-- Segunda Lista (Links à direita - Cadastrar/Entrar ou Sair) -->
     <ul class="navbar-nav ms-auto navbar-estilo">
         @if (Model != null)
         {
+            <!-- Usuário logado -->
             <li class="nav-item">
                 <a class="nav-link link-header" asp-area="" asp-controller="Desenho" asp-action="Criar">Publicar</a>
             </li>
@@ -41,7 +43,6 @@
                 <a class="nav-link link-header" asp-area="" asp-controller="Desenho" asp-action="MeusDesenhos">Meus Desenhos</a>
             </li>
 
-            <!-- Usuário logado -->
             <li class="nav-item">
                 <a class="nav-link link-header" asp-area="" asp-controller="Login" asp-action="Logout">Sair</a>
             </li>

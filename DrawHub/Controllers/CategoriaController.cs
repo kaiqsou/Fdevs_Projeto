@@ -1,6 +1,7 @@
 ﻿using DrawHub.Filters;
 using DrawHub.Models;
 using DrawHub.Repositorio;
+using DrawHub.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrawHub.Controllers
@@ -19,7 +20,13 @@ namespace DrawHub.Controllers
         {
             var categorias = _categoriaRepositorio.BuscarTodos();
 
-            return View(categorias);
+            var lista = categorias.Select(categoria => new QtdCategoriaViewModel
+            {
+                Categoria = categoria,
+                QtdDesenhos = _categoriaRepositorio.ContarDesenhos(categoria.Id)
+            }).ToList();
+
+            return View(lista);
         }
 
         public IActionResult Criar()
@@ -29,17 +36,19 @@ namespace DrawHub.Controllers
 
         public IActionResult Editar(int id)
         {
-            Console.WriteLine($"[GET] TENTANDO ENCONTRAR ID: {id}");
-            var categoria = _categoriaRepositorio.BuscarPorId(id);
-
-            if (categoria == null)
+            try
             {
-                Console.WriteLine("NAO ENCONTRADO!");
-                TempData["MsgErro"] = "Categoria não encontrada!";
+                var categoria = _categoriaRepositorio.BuscarPorId(id);
+
+                if (categoria == null) return RedirectToAction("Index", "Categoria");
+
+                return View(categoria);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na edição da categoria! Detalhes do erro: {ex.Message}");
                 return RedirectToAction("Index", "Categoria");
             }
-
-            return View(categoria);
         }
 
         public IActionResult Excluir(int id)
@@ -48,29 +57,29 @@ namespace DrawHub.Controllers
             {
                 bool apagado = _categoriaRepositorio.Excluir(id);
 
-                if (apagado)
-                {
-                    TempData["MensagemSucesso"] = "Categoria excluída com sucesso!";
-                }
-                else
-                {
-                    TempData["MensagemErro"] = "Erro na exclusão da categoria!";
-                }
-
                 return RedirectToAction("Index", "Categoria");
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $"Erro na exclusão do desenho! Detalhes do erro: {erro.Message}";
+                Console.WriteLine($"Erro na exclusão da categoria! Detalhes do erro: {erro.Message}");
                 return RedirectToAction("Index", "Categoria");
             }
         }
 
         public IActionResult ConfirmarExclusao(int id)
         {
-            Categoria categoria = _categoriaRepositorio.BuscarPorId(id);
+            try
+            {
+                Categoria categoria = _categoriaRepositorio.BuscarPorId(id);
 
-            return View(categoria);
+                return View(categoria);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na exclusão de categoria! Detalhes do erro: {ex.Message}");
+                return RedirectToAction("Index", "Categoria");
+            }
+            
         }
 
         // Métodos [POST]
@@ -82,12 +91,12 @@ namespace DrawHub.Controllers
                 try
                 {
                     var novaCategoria = _categoriaRepositorio.Adicionar(categoria);
-
                     return RedirectToAction("Index", "Categoria");
                 }
-                catch (Exception erro)
+                catch (Exception ex)
                 {
-                    TempData["MsgErro"] = $"Erro ao adicionar a categoria! Mais detalhes: {erro.Message}";
+                    Console.WriteLine($"Erro ao adicionar a categoria! Detalhes do erro: {ex.Message}");
+                    return RedirectToAction("Index", "Categoria");
                 }
             }
 
@@ -97,23 +106,19 @@ namespace DrawHub.Controllers
         [HttpPost]
         public IActionResult Editar(Categoria categoria)
         {
-            Console.WriteLine("Entrei no editar");
             try
             {
-                Console.WriteLine("Entrei no TRY do editar");
                 var categoriaDb = _categoriaRepositorio.BuscarPorId(categoria.Id);
 
                 categoriaDb.Nome = categoria.Nome;
-                categoriaDb.DataAtualizacao = DateTime.Now;
 
                 _categoriaRepositorio.Atualizar(categoriaDb);
 
-                TempData["MsgSucesso"] = "Categoria atualizada com sucesso!";
                 return RedirectToAction("Index", "Categoria");
             }
             catch (Exception error)
             {
-                TempData["MsgErro"] = $"Erro ao atualizar o desenho! Mais detalhes: {error.Message}";
+                Console.WriteLine($"Erro ao atualizar a categoria! Mais detalhes: {error.Message}");
                 return RedirectToAction("Index", "Categoria");
             }
         }

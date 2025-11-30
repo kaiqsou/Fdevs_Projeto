@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrawHub")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2d55d12b6fc9b4f3c0e8a32cb2ba1ce75107ba5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+653fd11ca3f924f74d5c74a41c3d131116ff7146")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrawHub")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrawHub")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

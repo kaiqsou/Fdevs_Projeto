@@ -3,15 +3,14 @@
     border: none;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    min-height: 800px
 }
 
 .card-body 
 {
-    padding: 3rem 4rem !important;
+    padding: 3rem 2rem !important;
 }
 
-.btn 
+.btn-create 
 {
     padding: 14px 24px;
     font-size: 1.2rem;
@@ -51,8 +50,7 @@
 
 .form-control:focus 
 {
-    border-color: #CC6666;
-    box-shadow: 0 0 0 0.2rem rgba(204, 102, 102, 0.25);
+    border-color: #4caf50;
 }
 
 .input-group-text 
@@ -71,14 +69,14 @@
 
 .btn-primary 
 {
-    background: firebrick;
+    background-color: seagreen;
     border: none;
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover 
 {
-    background: linear-gradient(to right, #B25959, #C57A7A);
+    background: #2f847c;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(204, 102, 102, 0.4);
 }
@@ -108,8 +106,8 @@
 
 .form-check-input:checked 
 {
-    background-color: #CC6666;
-    border-color: #CC6666;
+    background-color: #2f847c;
+    border-color: #2f847c;
 }
 
 .form-label 
@@ -120,8 +118,7 @@
 
 .form-switch .form-check-input:focus 
 {
-    border-color: #CC6666;
-    box-shadow: 0 0 0 0.2rem rgba(204, 102, 102, 0.25);
+    border-color: #2f847c;
 }
 
 body 

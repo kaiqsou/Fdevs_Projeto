@@ -8,6 +8,12 @@
     transform: translateY(-2px);
 }
 
+.artista-background
+{
+    background-color: #2f847c;
+    color: white
+}
+
 .card 
 {
     background: white;

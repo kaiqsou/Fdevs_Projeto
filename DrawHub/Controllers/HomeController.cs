@@ -14,6 +14,7 @@ namespace DrawHub.Controllers
             _logger = logger;
         }
 
+        // Métodos [GET]
         public IActionResult Index()
         {
             return View();

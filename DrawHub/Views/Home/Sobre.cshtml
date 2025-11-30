@@ -1,5 +1,152 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Sobre o DrawHub";
 }
+
+<link rel="stylesheet" href="~/css/sobre.css" />
+
+<div class="container-sobre">
+    <div class="container">
+
+        <div class="sobre">
+            <h1 class="titulo-principal-sobre">Sobre o DrawHub</h1>
+            <p class="subtitulo-sobre">
+                Conectando artistas, inspirando criações e construindo uma comunidade de amantes da arte
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <!-- Sobre Mim -->
+                <div class="card card-sobre mb-4">
+                    <div class="cabecalho-card-sobre">
+                        <h2 class="titulo-card-sobre">
+                            <i class="fas fa-user me-2"></i>Sobre o Criador
+                        </h2>
+                        <p class="subtitulo-card-sobre">Conheça a mente por trás do DrawHub</p>
+                    </div>
+                    <div class="corpo-card-sobre">
+                        <div class="text-center mb-4">
+
+                            <!-- Foto -->
+                            <div class="foto-criador bg-light d-flex align-items-center justify-content-center">
+                                <img src="https://avatars.githubusercontent.com/u/99449012?v=4" alt="Imagem do criador" />
+                            </div>
+
+                            <!-- Nome e Função -->
+                            <h3 class="nome-criador">Kaique Onencio de Souza</h3>
+                            <p class="titulo-criador">Desenvolvedor</p>
+                        </div>
+
+                        <!-- Descrição -->
+                        <p class="descricao-criador">
+                            Olá! Sou um desenvolver apaixonado por desenho e tecnologia. Criei o DrawHub para unir
+                            essas duas paixões e proporcionar um espaço onde artistas possam compartilhar suas
+                            obras, aprender uns com os outros e crescerem juntos.
+                        </p>
+
+                        <!-- Contatos -->
+                        <div class="lista-contato">
+                            <a href="https://www.instagram.com/kaiqsou/" class="link-contato">
+                                <i class="fab fa-instagram"></i>
+                                Instagram
+                            </a>
+
+                            <a href="https://github.com/kaiqsou" class="link-contato">
+                                <i class="fab fa-github"></i>
+                                GitHub
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/kaique-onencio/" class="link-contato">
+                                <i class="fab fa-linkedin"></i>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Missões -->
+                <div class="card card-sobre mb-4">
+                    <div class="cabecalho-card-sobre">
+                        <h2 class="titulo-card-sobre">
+                            <i class="fas fa-bullseye me-2"></i>Missão
+                        </h2>
+                        <p class="subtitulo-card-sobre">Por que o DrawHub existe?</p>
+                    </div>
+                    <div class="corpo-card-sobre">
+                        <p class="texto-missao">
+                            O DrawHub nasceu da necessidade de criar um espaço dedicado exclusivamente
+                            para artistas visuais compartilharem suas jornadas, técnicas e inspirações.
+                        </p>
+                        <ul class="lista-missao">
+                            <!-- Missão 1 -->
+                            <li class="item-missao">
+                                <strong>Democratizar a arte:</strong> Proporcionar uma plataforma acessível
+                                para artistas de todos os níveis
+                            </li>
+
+                            <!-- Missão 2 -->
+                            <li class="item-missao">
+                                <strong>Compartilhar conhecimento:</strong> Criar um repositório de
+                                técnicas, tutoriais e inspirações
+                            </li>
+
+                            <!-- Missão 3 -->
+                            <li class="item-missao">
+                                <strong>Inspirar novos talentos:</strong> Motivar iniciantes através
+                                do trabalho de artistas experientes
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- O que é oferecido -->
+                <div class="card card-sobre">
+                    <div class="cabecalho-card-sobre">
+                        <h2 class="titulo-card-sobre">
+                            <i class="fas fa-star me-2"></i>O que é oferecido
+                        </h2>
+                        <p class="subtitulo-card-sobre">Ofertas para a comunidade artística</p>
+                    </div>
+
+                    <div class="corpo-card-sobre">
+                        <div class="lista-ofertas">
+                            <!-- Primeira Oferta -->
+                            <div class="item-oferta">
+                                <div class="icone-oferta">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <h4 class="titulo-oferta">Galeria Pública</h4>
+                                <p class="descricao-oferta">
+                                    Compartilhe seus desenhos para a comunidade e veja o que ela tem para te oferecer
+                                </p>
+                            </div>
+
+                            <!-- Segunda Oferta -->
+                            <div class="item-oferta">
+                                <div class="icone-oferta">
+                                    <i class="fas fa-folder"></i>
+                                </div>
+                                <h4 class="titulo-oferta">Repositório</h4>
+                                <p class="descricao-oferta">
+                                    Organize e armazene os seus trabalhos, com um local seguro para salvá-los
+                                </p>
+                            </div>
+
+                            <!-- Terceira Oferta -->
+                            <div class="item-oferta">
+                                <div class="icone-oferta">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4 class="titulo-oferta">Aprendizado Contínuo</h4>
+                                <p class="descricao-oferta">
+                                    Aprenda novas técnicas observando o trabalho de outros artistas e suas abordagens criativas
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

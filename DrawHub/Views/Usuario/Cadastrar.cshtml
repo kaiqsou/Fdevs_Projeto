@@ -5,10 +5,11 @@
     ViewData["Title"] = "Cadastrar";
 }
 
-<div class="container py-5 fundo-cadastro">
+<div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <!-- Card de Cadastro -->
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+
+            <!-- Card -->
             <div class="card shadow-lg border-0" style="border-radius: 1rem;">
                 <div class="card-header py-4 text-white text-center" style="border-radius: 1rem 1rem 0 0; border: none;">
                     <h2 class="mb-1 fw-bold">Crie sua conta</h2>
@@ -16,6 +17,8 @@
                 </div>
 
                 <div class="card-body p-4 p-md-5">
+
+                    <!-- Mensagens de Sucesso -->
                     @if (TempData["MsgSucesso"] != null)
                     {
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,6 +28,7 @@
                         </div>
                     }
 
+                    <!-- Mensagens de Erro -->
                     @if (TempData["MsgErro"] != null)
                     {
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -34,7 +38,9 @@
                         </div>
                     }
 
+                    <!-- Formulário -->
                     <form asp-action="Cadastrar" asp-controller="Usuario" method="post">
+
                         <!-- Nome -->
                         <div class="mb-3">
                             <label asp-for="Nome" class="form-label fw-semibold"></label>
@@ -89,14 +95,16 @@
                             <p class="text-danger">@Html.ValidationMessageFor(cs => cs.ConfirmaSenha)</p>
                         </div>
 
+                        <!-- Cadastrar (Submit) -->
                         <button type="submit" class="btn btn-primary w-100 py-2 mb-3 fw-bold" style="background: black; border: none;">
                             <i class="fas fa-user-plus me-2"></i>Cadastrar
                         </button>
 
+                        <!-- Login (Redirecionar) -->
                         <div class="text-center">
                             <p class="mb-0">
                                 Já possui uma conta?
-                                <a asp-action="Index" asp-controller="Login" class="fw-bold" style="color: #CC6666;">Fazer login</a>
+                                <a asp-action="Index" asp-controller="Login" class="fw-bold link-login">Fazer login</a>
                             </p>
                         </div>
                     </form>
@@ -106,13 +114,13 @@
     </div>
 </div>
 
+<!-- Script para mostrar/ocultar senha -->
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
-    <script>
-        // Mostrar/ocultar senha
+   <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Toggle para senha
+
             const toggleSenha = document.getElementById('toggleSenha');
             if (toggleSenha) {
                 toggleSenha.addEventListener('click', function() {
@@ -131,7 +139,6 @@
                 });
             }
 
-            // Toggle para confirmação de senha
             const toggleConfirmaSenha = document.getElementById('toggleConfirmaSenha');
             if (toggleConfirmaSenha) {
                 toggleConfirmaSenha.addEventListener('click', function() {

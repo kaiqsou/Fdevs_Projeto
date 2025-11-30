@@ -4,9 +4,53 @@
     ViewData["Title"] = "Confirmação de Exclusão";
 }
 
-<div class="text-center">
-    <h3>Realmente deseja apagar a categoria: (@Model.Nome)?</h3>
-</div>
+<div class="container-excluir-confirmacao">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card card-excluir-confirmacao">
 
-<a class="btn btn-primary w-100 mb-2 mt-2" role="button" asp-controller="Categoria" asp-action="Index">Cancelar Exclusão</a>
-<a class="btn btn-danger w-100" role="button" asp-controller="Categoria" asp-route-id="@Model.Id" asp-action="Excluir">Confirmar Exclusão</a>
+                    <!-- Cabeçalho da Exclusão -->
+                    <div class="cabecalho-excluir-confirmacao text-center">
+                        <h1 class="titulo-excluir-confirmacao">
+                            <i class="fas fa-exclamation-triangle icone-botao-excluir"></i>
+                            Confirmar Exclusão
+                        </h1>
+                        <p class="subtitulo-excluir-confirmacao">Ação irreversível</p>
+                    </div>
+
+                    <!-- Corpo da Exclusão -->
+                    <div class="corpo-excluir-confirmacao">
+                        <div class="icone-alerta-excluir">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+
+                        <p class="mensagem-excluir-confirmacao">
+                            Tem certeza que deseja excluir a categoria: (@Model.Nome)?
+                        </p>
+
+                        <div class="item-excluir-confirmacao">
+                            @Model.Nome
+                        </div>
+
+                        <p class="descricao-excluir-confirmacao">
+                            Todos os dados relacionados serão permanentemente removidos do sistema.
+                        </p>
+
+                        <!-- Botões -->
+                        <div class="grupo-botoes-excluir">
+                            <a class="botao-cancelar-excluir" asp-controller="Categoria" asp-action="Index">
+                                <i class="fas fa-times icone-botao-excluir"></i>
+                                Cancelar
+                            </a>
+                            <a class="botao-confirmar-excluir" asp-controller="Categoria" asp-route-id="@Model.Id" asp-action="Excluir">
+                                <i class="fas fa-check icone-botao-excluir"></i>
+                                Confirmar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

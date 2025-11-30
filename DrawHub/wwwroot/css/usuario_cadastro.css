@@ -8,6 +8,16 @@
     background: firebrick !important;
 }
 
+.link-login 
+{
+    color: #2f847c;
+}
+
+.link-login:hover 
+{
+    color: darkslategrey;
+}
+
 .form-control 
 {
     border: 1px solid #dee2e6;
@@ -16,8 +26,7 @@
 
 .form-control:focus 
 {
-    border-color: #CC6666;
-    box-shadow: 0 0 0 0.2rem rgba(204, 102, 102, 0.25);
+    border-color: #4caf50;
 }
 
 .input-group-text 

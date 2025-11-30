@@ -35,7 +35,10 @@ if (!app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<BancoContext>();
+
+    // Seeds
     AdminSeeder.SeedAdmin(context);
+    CategoriaSeeder.SeedCategorias(context);
 }
 
 app.UseStaticFiles();

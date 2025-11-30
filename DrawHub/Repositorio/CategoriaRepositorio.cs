@@ -14,8 +14,6 @@ namespace DrawHub.Repositorio
 
         public Categoria Adicionar(Categoria categoria)
         {
-            categoria.DataCriacao = DateTime.Now;
-
             _context.Categorias.Add(categoria);
             _context.SaveChanges();
 
@@ -38,12 +36,17 @@ namespace DrawHub.Repositorio
 
         public Categoria BuscarPorId(int id)
         {
-            return _context.Categorias.FirstOrDefault(x => x.Id == id);
+            return _context.Categorias.FirstOrDefault(c => c.Id == id);
         }
 
         public List<Categoria> BuscarTodos()
         {
             return _context.Categorias.ToList();
+        }
+
+        public int ContarDesenhos(int categoriaId)
+        {
+            return _context.Desenhos.Count(d => d.CategoriaId == categoriaId);
         }
 
         public bool Excluir(int id)

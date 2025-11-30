@@ -17,7 +17,7 @@ namespace DrawHub.Repositorio
         List<Desenho> BuscarTodos();
 
         // Busca todos os desenhos de um usuário específico
-        List<Desenho> BuscarTodosPorUser(int id);
+        List<Desenho> BuscarTodosPorUser(Guid id);
 
         // Exclui um desenho
         bool Excluir(int id);
