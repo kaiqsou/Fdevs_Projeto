@@ -47,7 +47,14 @@ namespace DrawHub.Controllers
         [UserPage]
         public IActionResult Editar(int id)
         {
+            Usuario userLogado = _sessao.BuscarSessao();
             var desenho = _desenhoRepositorio.BuscarPorId(id);
+
+            if (desenho.UsuarioId != userLogado.Id)
+            {
+                return RedirectToAction("Index", "Restricao");
+            }
+
             var categorias = _categoriaRepositorio.BuscarTodos();
 
             if (desenho == null)
@@ -87,6 +94,9 @@ namespace DrawHub.Controllers
         public IActionResult MeusDesenhos(int id)
         {
             Usuario userLogado = _sessao.BuscarSessao();
+
+            if (_sessao.BuscarSessao() == null) return RedirectToAction("Cadastrar", "Usuario");
+
             List<Desenho> desenhosUser = _desenhoRepositorio.BuscarTodosPorUser(userLogado.Id);
 
             return View(desenhosUser);
@@ -95,7 +105,13 @@ namespace DrawHub.Controllers
         [UserPage]
         public IActionResult ConfirmarExclusao(int id)
         {
+            Usuario userLogado = _sessao.BuscarSessao();
             Desenho desenho = _desenhoRepositorio.BuscarPorId(id);
+
+            if (desenho.UsuarioId != userLogado.Id)
+            {
+                return RedirectToAction("Index", "Restricao");
+            }
 
             return View(desenho);
         }
@@ -121,7 +137,6 @@ namespace DrawHub.Controllers
         [UserPage]
         public IActionResult Criar(DesenhoCategoriaViewModel desenhoViewModel)
         {
-            Console.WriteLine("entrei no POST do CRIAR");
             Console.WriteLine($"Desenho: {desenhoViewModel}");
 
             desenhoViewModel.Categorias = _categoriaRepositorio.BuscarTodos();
@@ -153,7 +168,14 @@ namespace DrawHub.Controllers
                 try
                 {
                     var nomeImagem = $"{Guid.NewGuid()}{extensao}";
-                    var caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", nomeImagem);
+                    var pastaImg = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img");
+
+                    if (!Directory.Exists(pastaImg))
+                    {
+                        Directory.CreateDirectory(pastaImg);
+                    }
+
+                    var caminho = Path.Combine(pastaImg, nomeImagem);
 
                     using (var stream = new FileStream(caminho, FileMode.Create))
                     {
