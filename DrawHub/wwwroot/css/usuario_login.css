@@ -3,6 +3,11 @@
     border: none !important;
 }
 
+.card-header 
+{
+    background: black !important;
+}
+
 .link-cadastro 
 {
     color: #2f847c;

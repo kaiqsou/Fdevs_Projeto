@@ -4,6 +4,8 @@
     ViewData["Title"] = "Meus Desenhos";
 }
 
+<link rel="stylesheet" href="~/css/desenho_meusdesenhos.css" asp-append-version="true" />
+
 <div class="container-fluid py-4 meus-desenhos-pagina">
 
     <!-- Cabeçalho -->
@@ -103,14 +105,14 @@
                         <!-- Botões -->
                         <div class="card-footer bg-transparent">
                             <div class="d-grid gap-2">
-                                <a asp-controller="Desenho" asp-action="Detalhes" asp-route-id="@desenho.Id" class="btn btn-sm meus-desenhos-btn-detalhes">
+                                <a asp-controller="Desenho" asp-action="Detalhes" asp-route-id="@desenho.Id" class="btn meus-desenhos-btn-detalhes w-100">
                                     <i class="fas fa-eye me-1"></i>Detalhes
                                 </a>
                                 <div class="d-flex gap-2">
-                                    <a asp-controller="Desenho" asp-action="Editar" asp-route-id="@desenho.Id" class="btn-meus-desenhos btn-dark flex btn-sm meus-desenhos-btn-editar">
+                                    <a asp-controller="Desenho" asp-action="Editar" asp-route-id="@desenho.Id" class="btn meus-desenhos-btn-editar flex-fill">
                                         <i class="fas fa-edit me-1"></i>Editar
                                     </a>
-                                    <a asp-controller="Desenho" asp-action="ConfirmarExclusao" asp-route-id="@desenho.Id" class="btn-meus-desenhos btn-danger flex btn-sm meus-desenhos-btn-excluir">
+                                    <a asp-controller="Desenho" asp-action="ConfirmarExclusao" asp-route-id="@desenho.Id" class="btn meus-desenhos-btn-excluir flex-fill">
                                         <i class="fas fa-trash me-1"></i>Excluir
                                     </a>
                                 </div>

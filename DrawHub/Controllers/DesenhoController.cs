@@ -39,6 +39,8 @@ namespace DrawHub.Controllers
                 Categorias = _categoriaRepositorio.BuscarTodos()
             };
 
+            Console.WriteLine($"Desenho: {viewModel}");
+
             return View(viewModel);
         }
 
@@ -119,6 +121,9 @@ namespace DrawHub.Controllers
         [UserPage]
         public IActionResult Criar(DesenhoCategoriaViewModel desenhoViewModel)
         {
+            Console.WriteLine("entrei no POST do CRIAR");
+            Console.WriteLine($"Desenho: {desenhoViewModel}");
+
             desenhoViewModel.Categorias = _categoriaRepositorio.BuscarTodos();
             var imagem = desenhoViewModel.Desenho.ArquivoImagem;
 

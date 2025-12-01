@@ -1,5 +1,5 @@
 wwwroot\css\categoria_editar.css
-wwwroot\css\confirmacao_exclusao.css
+wwwroot\css\usuario_login.css
 wwwroot\css\desenho_create.css
 wwwroot\css\desenho_detalhes.css
 wwwroot\css\desenho_editar.css
@@ -10,11 +10,10 @@ wwwroot\css\header.css
 wwwroot\css\home_inicio.css
 wwwroot\css\restricao.css
 wwwroot\css\site.css
-wwwroot\css\sobre.css
 wwwroot\css\usuario_cadastro.css
-wwwroot\css\usuario_login.css
+wwwroot\css\sobre.css
+wwwroot\css\confirmacao_exclusao.css
 wwwroot\DrawHub-logo.png
-wwwroot\icon.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -73,3 +72,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\icon.png

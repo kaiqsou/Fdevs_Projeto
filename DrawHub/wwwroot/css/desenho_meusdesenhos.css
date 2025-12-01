@@ -11,7 +11,6 @@
 {
     padding: 10px;
     font-size: 1.2rem;
-    width: 115px;
     text-decoration: none;
 }
 
@@ -22,6 +21,7 @@
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    color: white;
 }
 
 .meus-desenhos-btn-editar:hover 
@@ -29,6 +29,7 @@
     background: black !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(204, 102, 102, 0.3);
+    color: white;
 }
 
 .meus-desenhos-btn-excluir 
@@ -38,6 +39,7 @@
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    color: white;
 }
 
 .meus-desenhos-btn-excluir:hover 
@@ -45,6 +47,7 @@
     background: linear-gradient(135deg, #c82333, #a71e2a);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    color: white;
 }
 
 .titulo-meus-desenhos 
@@ -126,7 +129,8 @@
     border-radius: 0.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    font-size: 0.9rem
+    padding: 8px 10px;
+    font-size: 0.9rem;
 }
 
 .meus-desenhos-btn-detalhes:hover 
@@ -169,6 +173,25 @@
     padding: 40px 20px;
 }
 
+.desenho-btn-vazio 
+{
+    background-color: seagreen !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    padding: 12px 30px !important;
+    color: white !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.desenho-btn-vazio:hover 
+{
+    background-color: #2f847c !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(204, 102, 102, 0.4) !important;
+    color: white !important;
+}
+
 .privacidade.bg-success 
 {
     background-color: skyblue !important;
@@ -177,4 +200,11 @@
 .privacidade.bg-warning 
 {
     background-color: goldenrod !important;
+}
+
+.meus-desenhos-btn-editar, .meus-desenhos-btn-excluir 
+{
+    padding: 8px 0;
+    font-size: 0.9rem;
+    width: 100%;
 }
